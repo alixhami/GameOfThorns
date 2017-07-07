@@ -7,6 +7,8 @@ TagManager:
   - FxTemporaire
   - projectile
   - Rose
+  - TargetCharacter
+  - EnemyCharacter
   layers:
   - Default
   - TransparentFX

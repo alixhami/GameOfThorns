@@ -19,14 +19,17 @@ public class Movement : MonoBehaviour {
 
 	void Awake () {
 		anim = GetComponent<Animator> ();
-	}
-
-	void Update() {
 		Move();
-		// react
 	}
 
 	void Move() {
-		anim.SetFloat("Forward", 1f);
+		print (gameObject.tag);
+		anim.SetFloat ("Forward", 1f);
+		if (gameObject.tag == "TargetCharacter") {
+			anim.SetFloat("Forward", 1f);
+		} else if (gameObject.tag == "EnemyCharacter") {
+			anim.SetFloat ("Drunk", 1f);
+		}
+
 	}
 }
