@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour {
 
 	Animator anim;
 	Rigidbody rb;
+  string[] tags = new string[]{"TargetCharacter", "EnemyCharacter"};
 
 	void OnCollisionEnter (Collision c) {
 		if (c.gameObject.tag == "Rose") {
@@ -19,15 +20,17 @@ public class Movement : MonoBehaviour {
 
 	void Awake () {
 		anim = GetComponent<Animator> ();
+    tag = tags [Random.Range (0, tags.Length)];
+
 		Move();
 	}
 
 	void Move() {
 		print (gameObject.tag);
-		anim.SetFloat ("Forward", 1f);
-		if (gameObject.tag == "TargetCharacter") {
+
+		if (tag == "TargetCharacter") {
 			anim.SetFloat("Forward", 1f);
-		} else if (gameObject.tag == "EnemyCharacter") {
+		} else if (tag == "EnemyCharacter") {
 			anim.SetFloat ("Drunk", 1f);
 		}
 

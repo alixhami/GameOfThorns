@@ -6,7 +6,6 @@ public class Spawner : MonoBehaviour {
 
 	public GameObject[] spawnees;
 	int randomSpawnIndex;
-	string[] tags = new string[]{"TargetCharacter", "EnemyCharacter"};
 
 	void Start () {
 		InvokeRepeating("SpawnRandom", 1.0f, 2.0f);
@@ -20,6 +19,5 @@ public class Spawner : MonoBehaviour {
 		randomPos.x = Random.Range (-5f, 5f);
 
 		GameObject newSpawn = Instantiate (spawnees [randomSpawnIndex], randomPos, transform.rotation)as GameObject;
-		newSpawn.tag = tags [Random.Range (0, tags.Length)];
 	}
 }
