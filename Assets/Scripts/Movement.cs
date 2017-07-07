@@ -4,9 +4,13 @@ using UnityEngine;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(CapsuleCollider))]
 public class Movement : MonoBehaviour {
 
   Animator anim;
+  Rigidbody rb;
+
 
   void Awake () {
     anim = GetComponent<Animator> ();
@@ -18,6 +22,6 @@ public class Movement : MonoBehaviour {
   }
 
   void Move() {
-    anim.SetFloat("Drunk", 1f);
+    anim.SetFloat("Forward", 1f);
   }
 }
