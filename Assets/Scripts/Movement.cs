@@ -26,8 +26,7 @@ public class Movement : MonoBehaviour {
 	}
 
 	void Move() {
-		print (gameObject.tag);
-
+    
 		if (tag == "TargetCharacter") {
 			anim.SetFloat("Forward", 1f);
 		} else if (tag == "EnemyCharacter") {

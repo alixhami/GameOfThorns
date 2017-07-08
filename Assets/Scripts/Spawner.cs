@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour {
 
 		// Set random position on x axis, based on position of spawn origin
 		Vector3 randomPos = transform.position;
-		randomPos.x = Random.Range (-5f, 5f);
+		randomPos.z += Random.Range (-3f, 3f);
 
 		GameObject newSpawn = Instantiate (spawnees [randomSpawnIndex], randomPos, transform.rotation)as GameObject;
 	}
