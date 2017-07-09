@@ -12,7 +12,10 @@ public class Movement : MonoBehaviour {
 	Animator anim;
 	Rigidbody rb;
   string[] tags = new string[]{"TargetCharacter", "EnemyCharacter"};
-  public Transform goal;
+  public GameObject[] waypoints;
+  int currentWP = 0;
+  float accuracyWP = 3.0f;
+  NavMeshAgent agent;
 
 	void Awake () {
     anim = GetComponent<Animator> ();
@@ -20,10 +23,15 @@ public class Movement : MonoBehaviour {
 	}
 
   void Start () {
-    NavMeshAgent agent = GetComponent<NavMeshAgent>();
-    agent.destination = goal.position;
-
+    agent = GetComponent<NavMeshAgent> ();
     Move();
+  }
+
+  void Update () {
+    if (Vector3.Distance (waypoints [currentWP].transform.position, transform.position) < accuracyWP) {
+      currentWP++;
+    }
+    agent.destination = waypoints[currentWP].transform.position;
   }
 
 	void Move() {

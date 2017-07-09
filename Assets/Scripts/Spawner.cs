@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour {
 
 	public GameObject[] spawnees;
-  public GameObject goalObject;
+  public GameObject[] waypoints;
 	int randomSpawnIndex;
 
 	void Start () {
@@ -20,6 +20,6 @@ public class Spawner : MonoBehaviour {
 		randomPos.z += Random.Range (-3f, 3f);
 
 		GameObject newSpawn = Instantiate (spawnees [randomSpawnIndex], randomPos, transform.rotation);
-    newSpawn.GetComponent<Movement>().goal = goalObject.transform;
+    newSpawn.GetComponent<Movement>().waypoints = waypoints;
 	}
 }
