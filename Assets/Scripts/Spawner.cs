@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour {
 
 	public GameObject[] spawnees;
+  public GameObject goalObject;
 	int randomSpawnIndex;
 
 	void Start () {
@@ -18,6 +19,7 @@ public class Spawner : MonoBehaviour {
 		Vector3 randomPos = transform.position;
 		randomPos.z += Random.Range (-3f, 3f);
 
-		GameObject newSpawn = Instantiate (spawnees [randomSpawnIndex], randomPos, transform.rotation)as GameObject;
+		GameObject newSpawn = Instantiate (spawnees [randomSpawnIndex], randomPos, transform.rotation);
+    newSpawn.GetComponent<Movement>().goal = goalObject.transform;
 	}
 }

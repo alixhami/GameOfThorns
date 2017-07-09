@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Animator))]
@@ -11,19 +12,19 @@ public class Movement : MonoBehaviour {
 	Animator anim;
 	Rigidbody rb;
   string[] tags = new string[]{"TargetCharacter", "EnemyCharacter"};
-
-	void OnCollisionEnter (Collision c) {
-		if (c.gameObject.tag == "Rose") {
-			anim.SetTrigger ("getRose");
-		}
-	}
+  public Transform goal;
 
 	void Awake () {
-		anim = GetComponent<Animator> ();
+    anim = GetComponent<Animator> ();
     tag = tags [Random.Range (0, tags.Length)];
-
-		Move();
 	}
+
+  void Start () {
+    NavMeshAgent agent = GetComponent<NavMeshAgent>();
+    agent.destination = goal.position;
+
+    Move();
+  }
 
 	void Move() {
     
@@ -32,6 +33,12 @@ public class Movement : MonoBehaviour {
 		} else if (tag == "EnemyCharacter") {
 			anim.SetFloat ("Drunk", 1f);
 		}
-
+    
 	}
+
+  void OnCollisionEnter (Collision c) {
+    if (c.gameObject.tag == "Rose") {
+      anim.SetTrigger ("getRose");
+    }
+  }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boundary : MonoBehaviour {
+public class DestroyOutgoing : MonoBehaviour {
 
   void OnTriggerExit(Collider other) {
     Destroy(other.gameObject);
