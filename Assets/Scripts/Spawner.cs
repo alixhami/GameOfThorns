@@ -5,8 +5,9 @@ using UnityEngine;
 public class Spawner : MonoBehaviour {
 
 	public GameObject[] spawnees;
-  public GameObject[] waypoints;
+ 	public GameObject[] waypoints;
 	int randomSpawnIndex;
+	public Scoring scoring;
 
 	void Start () {
 		InvokeRepeating("SpawnRandom", 1.0f, 2.0f);
@@ -20,6 +21,7 @@ public class Spawner : MonoBehaviour {
 		randomPos.z += Random.Range (-3f, 3f);
 
 		GameObject newSpawn = Instantiate (spawnees [randomSpawnIndex], randomPos, transform.rotation);
-    newSpawn.GetComponent<Movement>().waypoints = waypoints;
+    	newSpawn.GetComponent<Movement>().waypoints = waypoints;
+		newSpawn.GetComponent<Movement> ().scoring = scoring;
 	}
 }

@@ -12,10 +12,15 @@ public class Movement : MonoBehaviour {
 	Animator anim;
 	Rigidbody rb;
 	string[] tags = new string[]{"TargetCharacter", "EnemyCharacter"};
+	bool goodGuy;
+	bool receivedRose;
+
 	public GameObject[] waypoints;
 	int currentWP = 0;
 	float accuracyWP;
 	NavMeshAgent agent;
+
+	public Scoring scoring;
 
 	void Awake () {
 		anim = GetComponent<Animator> ();
@@ -38,8 +43,10 @@ public class Movement : MonoBehaviour {
 	void Move() {
     
 		if (tag == "TargetCharacter") {
+			goodGuy = true;
 			anim.SetFloat("Forward", 1f);
 		} else if (tag == "EnemyCharacter") {
+			goodGuy = false;
 			anim.SetFloat ("Drunk", 1f);
 		}
     
@@ -55,6 +62,14 @@ public class Movement : MonoBehaviour {
 		if (c.gameObject.tag == "Rose") {
 	  		anim.SetTrigger ("getRose");
 	  		anim.SetBool ("hasRose", true);
+
+			if (goodGuy && !receivedRose) {
+				scoring.AddPoints (1);
+			} else if (!receivedRose) {
+				scoring.AddPoints (-1);
+			}
+
+			receivedRose = true;
 		}
 	}
 }
