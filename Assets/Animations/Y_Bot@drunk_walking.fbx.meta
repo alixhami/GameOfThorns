@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: b8bc1d7185d83483fad47eb8bd28c269
-timeCreated: 1499376855
+guid: 9f6763a81a06b4cc6a7c0d3bcd90ad8b
+timeCreated: 1499578641
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -170,9 +170,9 @@ ModelImporter:
       name: drunk_walking
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 125
+      lastFrame: 209
       wrapMode: 0
-      orientationOffsetY: 0
+      orientationOffsetY: -0.26
       level: 0
       cycleOffset: 0
       loop: 0

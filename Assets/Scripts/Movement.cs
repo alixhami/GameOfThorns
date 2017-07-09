@@ -44,9 +44,16 @@ public class Movement : MonoBehaviour {
     
 	}
 
+  void OnAnimatorMove () {
+    Vector3 position = anim.rootPosition;
+    position.y = agent.nextPosition.y;
+    transform.position = position;
+  }
+
   void OnCollisionEnter (Collision c) {
     if (c.gameObject.tag == "Rose") {
       anim.SetTrigger ("getRose");
+      anim.SetBool ("hasRose", true);
     }
   }
 }
