@@ -345,6 +345,7 @@ GameObject:
   - component: {fileID: 136398700381029190}
   - component: {fileID: 114479424077509188}
   - component: {fileID: 114118287082094246}
+  - component: {fileID: 136752663734747624}
   m_Layer: 0
   m_Name: BlueSuitFree01
   m_TagString: Untagged
@@ -1509,7 +1510,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129800}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04936993, y: 1.5899042, z: -1.1356226}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 432814}
@@ -2593,11 +2594,24 @@ CapsuleCollider:
   m_GameObject: {fileID: 129800}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
+  m_Enabled: 0
+  m_Radius: 0.2
+  m_Height: 1.8
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!136 &136752663734747624
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 129800}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.1
+  m_Height: 0.35
+  m_Direction: 0
+  m_Center: {x: 0, y: 1.4, z: 0.1}
 --- !u!195 &195862685132174008
 NavMeshAgent:
   m_ObjectHideFlags: 1

@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class RoseMagnet : MonoBehaviour {
 
-  void OnCollisionEnter (Collision c) {
-    if (c.gameObject.tag == "Rose") {
-      c.transform.SetParent(transform);
-      c.transform.GetComponent<Rigidbody>().isKinematic = true;
-    }
-  }
+	void OnTriggerEnter (Collider c) {
+		print ("Collided");
+		print (c.gameObject.tag);
+		if (c.gameObject.tag == "Rose") {
+			print ("A ROSE!");
+			c.transform.SetParent(transform);
+			c.transform.GetComponent<Rigidbody>().isKinematic = true;
+		}
+  	}
 
 }
