@@ -344,8 +344,6 @@ GameObject:
   - component: {fileID: 195862685132174008}
   - component: {fileID: 136398700381029190}
   - component: {fileID: 114479424077509188}
-  - component: {fileID: 114118287082094246}
-  - component: {fileID: 136752663734747624}
   m_Layer: 0
   m_Name: BlueSuitFree01
   m_TagString: Untagged
@@ -1112,6 +1110,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 476126}
+  - component: {fileID: 136988608102495080}
+  - component: {fileID: 114110708329239426}
   m_Layer: 0
   m_Name: Chest_M
   m_TagString: Untagged
@@ -2562,12 +2562,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &114118287082094246
+--- !u!114 &114110708329239426
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129800}
+  m_GameObject: {fileID: 195640}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d70279be12dcf456091d694c417ebae0, type: 3}
@@ -2599,19 +2599,19 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
---- !u!136 &136752663734747624
+--- !u!136 &136988608102495080
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129800}
+  m_GameObject: {fileID: 195640}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.1
   m_Height: 0.35
-  m_Direction: 0
-  m_Center: {x: 0, y: 1.4, z: 0.1}
+  m_Direction: 2
+  m_Center: {x: -0.15, y: 0.05, z: 0}
 --- !u!195 &195862685132174008
 NavMeshAgent:
   m_ObjectHideFlags: 1
