@@ -22,10 +22,7 @@ public class Spawner : MonoBehaviour {
 		randomPos.z += Random.Range (-3f, 3f);
 
 		GameObject newSpawn = Instantiate (spawnees [randomSpawnIndex], randomPos, transform.rotation);
-    newSpawn.GetComponent<Movement>().waypoints = waypoints;
+		newSpawn.GetComponent<Movement>().waypoints = waypoints;
 		newSpawn.GetComponent<Movement> ().scoring = scoring;
-
-    print( newSpawn.GetComponent<NavMeshAgent>().velocity );
-    print( newSpawn.GetComponent<NavMeshAgent>().acceleration );
 	}
 }

@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour {
 	Rigidbody rb;
 	string[] tags = new string[]{"TargetCharacter", "EnemyCharacter"};
 	bool goodGuy;
-	bool receivedRose;
+	public bool receivedRose;
 
 	public GameObject[] waypoints;
 	int currentWP = 0;
@@ -58,18 +58,17 @@ public class Movement : MonoBehaviour {
 		transform.position = position;
 	}
 
-	void OnCollisionEnter (Collision c) {
-		if (c.gameObject.tag == "Rose") {
-	  		anim.SetTrigger ("getRose");
-	  		anim.SetBool ("hasRose", true);
+	public void GetRose () {
+		anim.SetTrigger ("getRose");
+		anim.SetBool ("hasRose", true);
 
-			if (goodGuy && !receivedRose) {
-				scoring.AddPoints (1);
-			} else if (!receivedRose) {
-				scoring.AddPoints (-1);
-			}
-
-			receivedRose = true;
+		if (goodGuy && !receivedRose) {
+			scoring.AddPoints (1);
+		} else if (!receivedRose) {
+			scoring.AddPoints (-1);
 		}
+
+		receivedRose = true;
 	}
+
 }
