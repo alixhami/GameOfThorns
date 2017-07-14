@@ -6,7 +6,6 @@ using UnityEngine.AI;
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(CapsuleCollider))]
 public class Movement : MonoBehaviour {
 
 	Animator anim;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class DestroyIncoming : MonoBehaviour {
 
   void OnTriggerEnter(Collider other) {
-    Destroy(other.gameObject);
+    Destroy(other.gameObject.transform.root.gameObject);
   }
 
 }

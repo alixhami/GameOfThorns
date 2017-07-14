@@ -475,7 +475,6 @@ GameObject:
   - component: {fileID: 95822308446824062}
   - component: {fileID: 54491953252116950}
   - component: {fileID: 195037394448930104}
-  - component: {fileID: 136375935923003936}
   - component: {fileID: 114992394761427648}
   m_Layer: 0
   m_Name: BlueSuitFree01
@@ -2439,19 +2438,6 @@ CapsuleCollider:
   m_Height: 0.4
   m_Direction: 2
   m_Center: {x: -0.15, y: 0.1, z: 0}
---- !u!136 &136375935923003936
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1341441759209672}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &137029834518815120
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
