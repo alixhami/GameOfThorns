@@ -21,11 +21,18 @@ public class Movement : MonoBehaviour {
 
 	public Scoring scoring;
 
+	AudioSource audioSource;
+	public AudioClip sipSound;
+	public AudioClip burpSound;
+	public AudioClip refreshedSound;
+	public AudioClip roseHitSound;
+
 	void Awake () {
 		anim = GetComponent<Animator> ();
 		tag = tags [Random.Range (0, tags.Length)];
 		goodGuy = tag == "TargetCharacter";
 		accuracyWP = Random.Range (2.0f, 5.0f);
+		audioSource = GetComponent<AudioSource> ();
 	}
 
 	void Start () {
@@ -51,6 +58,7 @@ public class Movement : MonoBehaviour {
 	}
 
 	public void GetRose () {
+		audioSource.PlayOneShot(roseHitSound);
 		anim.SetTrigger ("getRose");
 		anim.SetBool ("hasRose", true);
 
@@ -64,9 +72,17 @@ public class Movement : MonoBehaviour {
 	}
 
 	public void GetBeer () {
+		audioSource.PlayOneShot(sipSound);
+		StartCoroutine (BeerReaction());
+
 		if (!goodGuy) {
 			anim.SetFloat ("Drunk", 1f);
 		}
+	}
+
+	IEnumerator BeerReaction () {
+		yield return new WaitForSeconds (0.8f);
+		audioSource.PlayOneShot (goodGuy ? refreshedSound : burpSound);
 	}
 
 }

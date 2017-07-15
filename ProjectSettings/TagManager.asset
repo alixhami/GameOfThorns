@@ -8,8 +8,8 @@ TagManager:
   - projectile
   - Rose
   - TargetCharacter
-  - EnemyCharacter
   - Beer
+  - DrunkCharacter
   layers:
   - Default
   - TransparentFX
