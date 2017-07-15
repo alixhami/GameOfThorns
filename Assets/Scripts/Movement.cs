@@ -10,8 +10,8 @@ public class Movement : MonoBehaviour {
 
 	Animator anim;
 	Rigidbody rb;
-	string[] tags = new string[]{"TargetCharacter", "EnemyCharacter"};
-	bool goodGuy;
+	string[] tags = new string[]{"TargetCharacter", "DrunkCharacter"};
+	public bool goodGuy;
 	public bool receivedRose;
 
 	public GameObject[] waypoints;
@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour {
 	void Awake () {
 		anim = GetComponent<Animator> ();
 		tag = tags [Random.Range (0, tags.Length)];
+		goodGuy = tag == "TargetCharacter";
 		accuracyWP = Random.Range (2.0f, 5.0f);
 	}
 
@@ -33,22 +34,14 @@ public class Movement : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Vector3.Distance (waypoints [currentWP].transform.position, transform.position) < accuracyWP) {
+		if (Vector3.Distance (waypoints [currentWP].transform.position, transform.position) < accuracyWP && currentWP < waypoints.Length - 1) {
 	  		currentWP++;
 		}
 		agent.destination = waypoints[currentWP].transform.position;
 	}
 
 	void Move() {
-    
-		if (tag == "TargetCharacter") {
-			goodGuy = true;
-			anim.SetFloat("Forward", 1f);
-		} else if (tag == "EnemyCharacter") {
-			goodGuy = false;
-			anim.SetFloat ("Drunk", 1f);
-		}
-    
+		anim.SetFloat("Forward", 1f);
 	}
 
 	void OnAnimatorMove () {
@@ -68,6 +61,12 @@ public class Movement : MonoBehaviour {
 		}
 
 		receivedRose = true;
+	}
+
+	public void GetBeer () {
+		if (!goodGuy) {
+			anim.SetFloat ("Drunk", 1f);
+		}
 	}
 
 }

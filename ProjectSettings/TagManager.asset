@@ -9,6 +9,7 @@ TagManager:
   - Rose
   - TargetCharacter
   - EnemyCharacter
+  - Beer
   layers:
   - Default
   - TransparentFX

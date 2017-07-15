@@ -44,21 +44,28 @@ public class SpawnItems: MonoBehaviour {
 			Object.DestroyImmediate(joint);
 			joint = null;
 			holdingItem = false;
-			Object.Destroy(currentItem, 15.0f);
 
-			var origin = trackedObj.origin ? trackedObj.origin : trackedObj.transform.parent;
-			if (origin != null)
-			{
-				currentItemRigidbody.velocity = origin.TransformVector(device.velocity);
-				currentItemRigidbody.angularVelocity = origin.TransformVector(device.angularVelocity);
-			}
-			else
-			{
-				currentItemRigidbody.velocity = device.velocity;
-				currentItemRigidbody.angularVelocity = device.angularVelocity;
+			// Code below only runs if item hasn't been consumed by character
+			if (currentItem) {
+			
+				Object.Destroy(currentItem, 15.0f);
+
+				var origin = trackedObj.origin ? trackedObj.origin : trackedObj.transform.parent;
+				if (origin != null)
+				{
+					currentItemRigidbody.velocity = origin.TransformVector(device.velocity);
+					currentItemRigidbody.angularVelocity = origin.TransformVector(device.angularVelocity);
+				}
+				else
+				{
+					currentItemRigidbody.velocity = device.velocity;
+					currentItemRigidbody.angularVelocity = device.angularVelocity;
+				}
+
+				currentItemRigidbody.maxAngularVelocity = currentItemRigidbody.angularVelocity.magnitude;
+			
 			}
 
-			currentItemRigidbody.maxAngularVelocity = currentItemRigidbody.angularVelocity.magnitude;
 		}
 	
 	}

@@ -55,7 +55,6 @@ GameObject:
   - component: {fileID: 4825561267878824}
   - component: {fileID: 33987971759037548}
   - component: {fileID: 23212800317099420}
-  - component: {fileID: 136401578962738828}
   m_Layer: 0
   m_Name: Bottle
   m_TagString: Untagged
@@ -89,9 +88,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4594619095829456}
   - component: {fileID: 54292763625211034}
+  - component: {fileID: 136913042208715366}
   m_Layer: 0
   m_Name: beer
-  m_TagString: Untagged
+  m_TagString: Beer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -337,16 +337,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &136401578962738828
+--- !u!136 &136913042208715366
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1657606197525974}
+  m_GameObject: {fileID: 1986834264282796}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.52
-  m_Height: 10.924206
+  m_Radius: 1.5
+  m_Height: 11
   m_Direction: 1
-  m_Center: {x: 0, y: 0.12289715, z: -9}
+  m_Center: {x: 0, y: 0.1, z: -9}
