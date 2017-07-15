@@ -588,6 +588,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1422024470953398
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4321892362275712}
+  m_Layer: 0
+  m_Name: RoseHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1440967075328604
 GameObject:
   m_ObjectHideFlags: 1
@@ -1326,6 +1341,7 @@ Transform:
   m_LocalPosition: {x: -0.15509698, y: -0.017039794, z: 0.08477095}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4321892362275712}
   - {fileID: 4633404550338018}
   m_Father: {fileID: 4967218357971390}
   m_RootOrder: 1
@@ -1565,6 +1581,19 @@ Transform:
   m_Father: {fileID: 4032447818306774}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4321892362275712
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422024470953398}
+  m_LocalRotation: {x: -0.66406095, y: -0.119215444, z: -0.16092442, w: 0.7203569}
+  m_LocalPosition: {x: 0.006, y: -0.132, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4085348627322382}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -84.32101, y: 25.095001, z: -47.974003}
 --- !u!4 &4331480187206954
 Transform:
   m_ObjectHideFlags: 1
@@ -1863,7 +1892,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1341441759209672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.8048859, y: 0, z: -7.9897156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4935924638176222}
@@ -1911,7 +1940,7 @@ Transform:
   m_Children:
   - {fileID: 4280612999609244}
   m_Father: {fileID: 4085348627322382}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4662132637751172
 Transform:
@@ -2411,6 +2440,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1341441759209672}
+  roseTarget: {fileID: 4321892362275712}
+  roseSpeed: 0.1
 --- !u!114 &114992394761427648
 MonoBehaviour:
   m_ObjectHideFlags: 1
