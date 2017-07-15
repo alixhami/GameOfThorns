@@ -1,0 +1,170 @@
+fileFormatVersion: 2
+guid: 2ac09dad5755a9b4a8bc56efda5fe777
+timeCreated: 1500085013
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Area Light
+    100002: Area Light (2)
+    100004: Area Light (3)
+    100006: Area Light (4)
+    100008: Area Light (5)
+    100010: Backdrop Item
+    100012: BASE_NOVO_LABEL
+    100014: Blob
+    100016: Blob (2)
+    100018: Bottle
+    100020: Brushed Aluminum.lxp (3)
+    100022: Camera
+    100024: Camera (2)
+    100026: cap
+    100028: chao
+    100030: Drop Stretched 01.lxl (2)
+    100032: Group Locator
+    100034: //RootNode
+    100036: label
+    100038: liquido
+    100040: Mesh
+    100042: Mesh (2)
+    100044: Mesh (3)
+    100046: Mesh (5)
+    100048: Studio Room 01.lxe
+    100050: Surface Particle Generator
+    100052: Surface Particle Generator (2)
+    100054: Texture Group
+    100056: Texture Group (2)
+    400000: Area Light
+    400002: Area Light (2)
+    400004: Area Light (3)
+    400006: Area Light (4)
+    400008: Area Light (5)
+    400010: Backdrop Item
+    400012: BASE_NOVO_LABEL
+    400014: Blob
+    400016: Blob (2)
+    400018: Bottle
+    400020: Brushed Aluminum.lxp (3)
+    400022: Camera
+    400024: Camera (2)
+    400026: cap
+    400028: chao
+    400030: Drop Stretched 01.lxl (2)
+    400032: Group Locator
+    400034: //RootNode
+    400036: label
+    400038: liquido
+    400040: Mesh
+    400042: Mesh (2)
+    400044: Mesh (3)
+    400046: Mesh (5)
+    400048: Studio Room 01.lxe
+    400050: Surface Particle Generator
+    400052: Surface Particle Generator (2)
+    400054: Texture Group
+    400056: Texture Group (2)
+    2300000: BASE_NOVO_LABEL
+    2300002: Bottle
+    2300004: cap
+    2300006: chao
+    2300008: Drop Stretched 01.lxl (2)
+    2300010: label
+    2300012: liquido
+    2300014: Mesh
+    2300016: Mesh (2)
+    2300018: Mesh (3)
+    2300020: Mesh (5)
+    3300000: BASE_NOVO_LABEL
+    3300002: Bottle
+    3300004: cap
+    3300006: chao
+    3300008: Drop Stretched 01.lxl (2)
+    3300010: label
+    3300012: liquido
+    3300014: Mesh
+    3300016: Mesh (2)
+    3300018: Mesh (3)
+    3300020: Mesh (5)
+    4300000: Mesh
+    4300002: Bottle
+    4300004: chao
+    4300006: liquido
+    4300008: cap
+    4300010: Mesh (2)
+    4300012: BASE_NOVO_LABEL
+    4300014: Mesh (3)
+    4300016: Mesh (5)
+    4300018: Drop Stretched 01.lxl (2)
+    4300020: label
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
