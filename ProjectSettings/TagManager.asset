@@ -10,6 +10,7 @@ TagManager:
   - TargetCharacter
   - Beer
   - DrunkCharacter
+  - Face
   layers:
   - Default
   - TransparentFX
