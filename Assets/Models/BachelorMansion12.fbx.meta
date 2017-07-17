@@ -19,6 +19,9 @@ ModelImporter:
     100022: NurbsPath_MeshPart1
     100024: Plane
     100026: Plane.002
+    100028: Cube.001
+    100030: Cylinder
+    100032: Cylinder.001
     400000: //RootNode
     400002: Circle
     400004: Cube.000
@@ -33,6 +36,9 @@ ModelImporter:
     400022: NurbsPath_MeshPart1
     400024: Plane
     400026: Plane.002
+    400028: Cube.001
+    400030: Cylinder
+    400032: Cylinder.001
     2300000: Circle
     2300002: Cube.000
     2300004: Cube.002
@@ -44,6 +50,9 @@ ModelImporter:
     2300016: NurbsPath_MeshPart1
     2300018: Plane
     2300020: Plane.002
+    2300022: Cube.001
+    2300024: Cylinder
+    2300026: Cylinder.001
     3300000: Circle
     3300002: Cube.000
     3300004: Cube.002
@@ -55,6 +64,9 @@ ModelImporter:
     3300016: NurbsPath_MeshPart1
     3300018: Plane
     3300020: Plane.002
+    3300022: Cube.001
+    3300024: Cylinder
+    3300026: Cylinder.001
     4300000: Plane.002
     4300002: Plane
     4300004: Cube.006
@@ -66,6 +78,9 @@ ModelImporter:
     4300016: Circle
     4300018: NurbsPath_MeshPart0
     4300020: NurbsPath_MeshPart1
+    4300022: Cylinder.001
+    4300024: Cylinder
+    4300026: Cube.001
   materials:
     importMaterials: 1
     materialName: 0
