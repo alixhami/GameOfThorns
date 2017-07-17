@@ -17,11 +17,7 @@ public class Spawner : MonoBehaviour {
 	void SpawnRandom () {
 		randomSpawnIndex = Random.Range (0, spawnees.Length);
 
-		// Set random position on x axis, based on position of spawn origin
-		Vector3 randomPos = transform.position;
-		randomPos.x += Random.Range (-3f, 3f);
-
-		GameObject newSpawn = Instantiate (spawnees [randomSpawnIndex], randomPos, transform.rotation);
+		GameObject newSpawn = Instantiate (spawnees [randomSpawnIndex], transform.position, transform.rotation);
 		newSpawn.GetComponent<Movement>().waypoints = waypoints;
 		newSpawn.GetComponent<Movement> ().scoring = scoring;
 	}
