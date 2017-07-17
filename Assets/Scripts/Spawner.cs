@@ -11,7 +11,7 @@ public class Spawner : MonoBehaviour {
 	public Scoring scoring;
 
 	void Start () {
-		InvokeRepeating("SpawnRandom", 1.0f, 2.0f);
+		InvokeRepeating("SpawnRandom", 1.0f, 3.0f);
 	}
 
 	void SpawnRandom () {

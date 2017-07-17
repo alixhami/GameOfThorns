@@ -11,8 +11,6 @@ public class Hands : MonoBehaviour {
 	AudioSource audioSource;
 	public AudioClip slapSound;
 
-	public GameObject explosion;
-
 	void Awake () {
 		trackedObj = GetComponent<SteamVR_TrackedObject> ();
 		audioSource = GetComponent<AudioSource> ();
@@ -38,7 +36,6 @@ public class Hands : MonoBehaviour {
 			float pulseDuration = Mathf.Clamp (pulseIntensity, 0f, 0.3f);
 			StartCoroutine (TimedVibration (pulseDuration, pulseIntensity));
 
-			Instantiate (explosion, transform.position, transform.rotation);
 			Destroy(other.gameObject.transform.root.gameObject);
 
 			// must set haptic flag to false because trigger won't exit after object is deleted
