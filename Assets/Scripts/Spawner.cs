@@ -6,7 +6,12 @@ using UnityEngine.AI;
 public class Spawner : MonoBehaviour {
 
 	public GameObject[] spawnees;
- 	public GameObject[] waypoints;
+
+	public Transform playerArea;
+	public Transform mansionDoor;
+	public Transform towardElimination;
+	public Transform eliminationSpot;
+
 	int randomSpawnIndex;
 	public Scoring scoring;
 
@@ -18,7 +23,12 @@ public class Spawner : MonoBehaviour {
 		randomSpawnIndex = Random.Range (0, spawnees.Length);
 
 		GameObject newSpawn = Instantiate (spawnees [randomSpawnIndex], transform.position, transform.rotation);
-		newSpawn.GetComponent<Movement>().waypoints = waypoints;
-		newSpawn.GetComponent<Movement> ().scoring = scoring;
+
+		Movement movement = newSpawn.GetComponent<Movement> ();
+		movement.scoring = scoring;
+		movement.playerArea = playerArea;
+		movement.mansionDoor = mansionDoor;
+		movement.towardElimination = towardElimination;
+		movement.eliminationSpot = eliminationSpot;
 	}
 }

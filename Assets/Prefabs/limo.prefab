@@ -739,8 +739,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnees:
   - {fileID: 1341441759209672, guid: 1d3b1a1513de66247974634911345b98, type: 2}
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  playerArea: {fileID: 0}
+  mansionDoor: {fileID: 0}
+  towardElimination: {fileID: 0}
+  eliminationSpot: {fileID: 0}
   scoring: {fileID: 0}

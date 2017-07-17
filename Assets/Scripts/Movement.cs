@@ -14,8 +14,12 @@ public class Movement : MonoBehaviour {
 	public bool goodGuy;
 	public bool receivedRose;
 
-	public GameObject[] waypoints;
-	int currentWP = 0;
+	public Transform playerArea;
+	public Transform mansionDoor;
+	public Transform towardElimination;
+	public Transform eliminationSpot;
+	public Transform currentDestination;
+
 	float accuracyWP;
 	NavMeshAgent agent;
 
@@ -31,20 +35,26 @@ public class Movement : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		tag = tags [Random.Range (0, tags.Length)];
 		goodGuy = tag == "TargetCharacter";
-		accuracyWP = Random.Range (2.0f, 5.0f);
+		accuracyWP = 1.0f;
 		audioSource = GetComponent<AudioSource> ();
 	}
 
 	void Start () {
 		agent = GetComponent<NavMeshAgent> ();
+		currentDestination = playerArea;
 		Move();
 	}
 
 	void Update () {
-		if (Vector3.Distance (waypoints [currentWP].transform.position, transform.position) < accuracyWP && currentWP < waypoints.Length - 1) {
-	  		currentWP++;
+		if (Vector3.Distance (currentDestination.transform.position, transform.position) < accuracyWP) {
+			if (currentDestination == playerArea) {
+				currentDestination = (receivedRose || !goodGuy) ? mansionDoor : towardElimination;
+			} else if (currentDestination == towardElimination) {
+				currentDestination = eliminationSpot;
+			}
+
 		}
-		agent.destination = waypoints[currentWP].transform.position;
+		agent.destination = currentDestination.transform.position;
 	}
 
 	void Move() {
@@ -69,6 +79,7 @@ public class Movement : MonoBehaviour {
 		}
 
 		receivedRose = true;
+		currentDestination = mansionDoor;
 	}
 
 	public void GetBeer () {
