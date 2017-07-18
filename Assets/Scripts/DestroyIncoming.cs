@@ -16,7 +16,7 @@ public class DestroyIncoming : MonoBehaviour {
       Movement suitorMovement = parentObject.GetComponent<Movement>();
       if (!suitorMovement.goodGuy && !suitorMovement.receivedRose) {
         suitorMovement.receivedRose = true;
-        game.villainSneaksIn();
+        game.VillainSneaksIn();
       }
     }
 

@@ -23,14 +23,15 @@ public class Movement : MonoBehaviour {
 
 	float accuracyWP;
 	NavMeshAgent agent;
-
-	public Scoring scoring;
+  
+  public GameManager game;
 
 	AudioSource audioSource;
 	public AudioClip sipSound;
 	public AudioClip burpSound;
 	public AudioClip refreshedSound;
 	public AudioClip roseHitSound;
+  public AudioClip slapSound;
 
 	void Awake () {
 		anim = GetComponent<Animator> ();
@@ -74,9 +75,9 @@ public class Movement : MonoBehaviour {
 		anim.SetBool ("hasRose", true);
 
 		if (goodGuy && !receivedRose) {
-			scoring.AddPoints (1);
+			game.GoodGuyGetsRose();
 		} else if (!receivedRose) {
-			scoring.AddPoints (-1);
+			game.VillainGetsRose();
 		}
 
 		receivedRose = true;
@@ -96,5 +97,17 @@ public class Movement : MonoBehaviour {
 		yield return new WaitForSeconds (0.8f);
 		audioSource.PlayOneShot (suitorType == "Drunk" ? burpSound : refreshedSound);
 	}
+
+  public void GetSlapped () {
+    audioSource.PlayOneShot (slapSound);
+
+    if (goodGuy) {
+      game.GoodGuySlapped(receivedRose);
+    } else {
+      game.VillainSlapped(receivedRose);
+    }
+
+    Destroy(gameObject);
+  }
 
 }

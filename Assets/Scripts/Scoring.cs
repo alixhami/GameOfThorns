@@ -5,27 +5,27 @@ using UnityEngine.UI;
 
 public class Scoring : MonoBehaviour {
 
-	int positivePoints;
-	int negativePoints;
-	public Text positivePointDisplay;
-	public Text negativePointDisplay;
+	int villainCount;
+	int goodGuyCount;
+	public Text villainCountDisplay;
+	public Text goodGuyCountDisplay;
 
   void Start () {
     UpdateScores();
   }
 
-	public void AddPoints (int points) {
-		if (points < 0) {
-			negativePoints += Mathf.Abs (points);
-		} else {
-			positivePoints += points;
-		}
+  public void ChangeVillainCount (int num) {
+    villainCount += num;
+    UpdateScores ();
+  }
 
-		UpdateScores ();
-	}
+  public void ChangeGoodGuyCount (int num) {
+    goodGuyCount += num;
+    UpdateScores();
+  }
 
 	void UpdateScores () {
-		positivePointDisplay.text = positivePoints.ToString();
-		negativePointDisplay.text = negativePoints.ToString();
+		goodGuyCountDisplay.text = goodGuyCount.ToString();
+		villainCountDisplay.text = villainCount.ToString();
 	}
 }

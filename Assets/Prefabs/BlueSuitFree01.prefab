@@ -1895,7 +1895,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1341441759209672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25006104, y: 0, z: 3.0497894}
+  m_LocalPosition: {x: -0.0036010742, y: 0, z: 1.39357}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4935924638176222}
@@ -2561,6 +2561,7 @@ MonoBehaviour:
   burpSound: {fileID: 8300000, guid: e383fb4d6a547994fb7ebc31aee94ecd, type: 3}
   refreshedSound: {fileID: 8300000, guid: 62ad5a4a02f2d134e91b978fc1ca43d1, type: 3}
   roseHitSound: {fileID: 8300000, guid: 55c553d08edf0c9448a59565d3837eca, type: 3}
+  slapSound: {fileID: 8300000, guid: 8dbf96ebaaeb3b440bd922add3472fbc, type: 3}
 --- !u!136 &136109898305236248
 CapsuleCollider:
   m_ObjectHideFlags: 1

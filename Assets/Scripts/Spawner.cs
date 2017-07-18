@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour {
 	public Transform eliminationSpot;
 
 	int randomSpawnIndex;
-	public Scoring scoring;
+  public GameManager game;
 
 	void Start () {
 		InvokeRepeating("SpawnRandom", 1f, 4f);
@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour {
 		GameObject newSpawn = Instantiate (spawnees [randomSpawnIndex], transform.position, transform.rotation);
 
 		Movement movement = newSpawn.GetComponent<Movement> ();
-		movement.scoring = scoring;
+    movement.game = game;
 		movement.playerArea = playerArea;
 		movement.mansionDoor = mansionDoor;
 		movement.towardElimination = towardElimination;
