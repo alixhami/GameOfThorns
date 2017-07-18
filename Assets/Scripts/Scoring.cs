@@ -10,6 +10,10 @@ public class Scoring : MonoBehaviour {
 	public Text positivePointDisplay;
 	public Text negativePointDisplay;
 
+  void Start () {
+    UpdateScores();
+  }
+
 	public void AddPoints (int points) {
 		if (points < 0) {
 			negativePoints += Mathf.Abs (points);

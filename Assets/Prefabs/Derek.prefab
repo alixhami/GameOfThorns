@@ -419,7 +419,7 @@ GameObject:
   - component: {fileID: 82009200841253424}
   m_Layer: 0
   m_Name: Derek
-  m_TagString: Untagged
+  m_TagString: Suitor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2337,9 +2337,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a35284e6a4b4212b98b624db05ebca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  suitorType: 
   goodGuy: 0
   receivedRose: 0
-  waypoints: []
+  playerArea: {fileID: 0}
+  mansionDoor: {fileID: 0}
+  towardElimination: {fileID: 0}
+  eliminationSpot: {fileID: 0}
+  currentDestination: {fileID: 0}
   scoring: {fileID: 0}
   sipSound: {fileID: 8300000, guid: 9bc3ef8183b2f9b458b59a4119e54267, type: 3}
   burpSound: {fileID: 8300000, guid: e383fb4d6a547994fb7ebc31aee94ecd, type: 3}

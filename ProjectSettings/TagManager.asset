@@ -7,10 +7,9 @@ TagManager:
   - FxTemporaire
   - projectile
   - Rose
-  - TargetCharacter
   - Beer
-  - DrunkCharacter
   - Face
+  - Suitor
   layers:
   - Default
   - TransparentFX

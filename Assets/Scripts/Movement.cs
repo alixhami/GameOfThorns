@@ -10,7 +10,8 @@ public class Movement : MonoBehaviour {
 
 	Animator anim;
 	Rigidbody rb;
-	string[] tags = new string[]{"TargetCharacter", "DrunkCharacter"};
+	string[] suitorTypes = new string[]{"Good", "Drunk"};
+  public string suitorType;
 	public bool goodGuy;
 	public bool receivedRose;
 
@@ -33,14 +34,14 @@ public class Movement : MonoBehaviour {
 
 	void Awake () {
 		anim = GetComponent<Animator> ();
-		tag = tags [Random.Range (0, tags.Length)];
-		goodGuy = tag == "TargetCharacter";
+    agent = GetComponent<NavMeshAgent> ();
+		suitorType = suitorTypes [Random.Range (0, suitorTypes.Length)];
+		goodGuy = suitorType == "Good";
 		accuracyWP = 1.0f;
 		audioSource = GetComponent<AudioSource> ();
 	}
 
 	void Start () {
-		agent = GetComponent<NavMeshAgent> ();
 		currentDestination = playerArea;
 		Move();
 	}
@@ -86,14 +87,14 @@ public class Movement : MonoBehaviour {
 		audioSource.PlayOneShot(sipSound);
 		StartCoroutine (BeerReaction());
 
-		if (!goodGuy) {
+		if (suitorType == "Drunk") {
 			anim.SetFloat ("Drunk", 1f);
 		}
 	}
 
 	IEnumerator BeerReaction () {
 		yield return new WaitForSeconds (0.8f);
-		audioSource.PlayOneShot (goodGuy ? refreshedSound : burpSound);
+		audioSource.PlayOneShot (suitorType == "Drunk" ? burpSound : refreshedSound);
 	}
 
 }

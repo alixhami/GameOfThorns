@@ -4,8 +4,24 @@ using UnityEngine;
 
 public class DestroyIncoming : MonoBehaviour {
 
-  void OnTriggerEnter(Collider other) {
-    Destroy(other.gameObject.transform.root.gameObject);
+  public bool isMansionEntrance;
+  public Scoring scoring;
+
+  void OnTriggerEnter (Collider other) {
+
+    GameObject parentObject = other.gameObject.transform.root.gameObject;
+
+    if (parentObject.tag == "Suitor" && isMansionEntrance) {
+
+      Movement suitorMovement = parentObject.GetComponent<Movement>();
+      if (!suitorMovement.goodGuy && !suitorMovement.receivedRose) {
+        suitorMovement.receivedRose = true;
+        scoring.AddPoints(-1);
+      }
+    }
+
+    Destroy(parentObject);
+
   }
 
 }

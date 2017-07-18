@@ -650,7 +650,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.308
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -819,7 +819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b10405b5d864ce99a1e4a27cd49732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drivingSound: {fileID: 8300000, guid: 97bad189aec664bccbf4b60aaf96dc89, type: 3}
+  drivingSound: {fileID: 8300000, guid: 00f236622a03546fcb82d85b94b6148d, type: 3}
   stoppingSound: {fileID: 8300000, guid: d209c2517bd9e4e4fb98e9ee12c76180, type: 3}
   doorOpenSound: {fileID: 8300000, guid: 7001ef88516fd483d8459a83844845a9, type: 3}
 --- !u!114 &114775213591976348
@@ -835,6 +835,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnees:
   - {fileID: 1341441759209672, guid: 1d3b1a1513de66247974634911345b98, type: 2}
+  - {fileID: 1364409443158016, guid: 0cc0ae41dcd136544929c035253ce964, type: 2}
   playerArea: {fileID: 0}
   mansionDoor: {fileID: 0}
   towardElimination: {fileID: 0}
