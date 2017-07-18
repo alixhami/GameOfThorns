@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
   int goodGuysWithRosesCount;
 
   public void villainSneaksIn () {
-
+    playerAlerts.displayNegativeAlert("A villain snuck in!");
+    scoring.AddPoints(-1);
+    villainsSnuckInCount += 1;
   }
 }

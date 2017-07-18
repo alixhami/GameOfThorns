@@ -750,6 +750,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4168732841336148}
   - component: {fileID: 136091987558626722}
+  - component: {fileID: 114117358531713432}
   m_Layer: 0
   m_Name: mixamorig:Head
   m_TagString: Face
@@ -2105,7 +2106,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1364409443158016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0837097, y: 1.1368684e-13, z: -7.5771484}
+  m_LocalPosition: {x: 0.3325348, y: 0, z: 2.6444855}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4768581354478710}
@@ -2312,6 +2313,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114117358531713432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1628456818575318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4690dc470b44c939c59907c991e256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1364409443158016}
 --- !u!114 &114588736658692440
 MonoBehaviour:
   m_ObjectHideFlags: 1

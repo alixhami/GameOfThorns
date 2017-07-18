@@ -5,7 +5,7 @@ using UnityEngine;
 public class DestroyIncoming : MonoBehaviour {
 
   public bool isMansionEntrance;
-  public Scoring scoring;
+  public GameManager game;
 
   void OnTriggerEnter (Collider other) {
 
@@ -16,7 +16,7 @@ public class DestroyIncoming : MonoBehaviour {
       Movement suitorMovement = parentObject.GetComponent<Movement>();
       if (!suitorMovement.goodGuy && !suitorMovement.receivedRose) {
         suitorMovement.receivedRose = true;
-        scoring.AddPoints(-1);
+        game.villainSneaksIn();
       }
     }
 
