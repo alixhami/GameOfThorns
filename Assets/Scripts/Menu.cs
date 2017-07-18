@@ -7,7 +7,7 @@ public class Menu : MonoBehaviour {
   public GameObject limo;
 
   void Start () {
-    // Invoke("StartGame", 5f); 
+    Invoke("StartGame", 3f); 
   }
 
   void OnTriggerEnter (Collider other) {
