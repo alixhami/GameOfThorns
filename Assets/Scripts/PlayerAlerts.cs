@@ -35,7 +35,7 @@ public class PlayerAlerts : MonoBehaviour {
 	}
 
 	// TODO messages are turning each other off when they appear too close together
-	void hideMessage () {
+	public void hideMessage () {
 		gameObject.SetActive(false);
 	}
 

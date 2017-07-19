@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour {
 		DestroyAllWithTag("Suitor");
 
 		timer.hideTimer ();
+		playerAlerts.hideMessage ();
 		menu.DisplayGameOverMenu();
 	}
 

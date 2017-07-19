@@ -15,9 +15,9 @@ public class Timer : MonoBehaviour {
     text = GetComponent<Text>();
   }
 
-	public void hideTimer () {
-		gameObject.SetActive (false);
-	}
+  public void hideTimer () {
+    gameObject.SetActive (false);
+  }
 
   public void SetTimer (float seconds) {
     text.text = null;
