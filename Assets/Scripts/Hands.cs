@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class Hands : MonoBehaviour {
 
+  public GameManager game;
+
 	public bool hapticFlag = false;
 	private SteamVR_TrackedObject trackedObj;
+  private SteamVR_TrackedController controller;
 	private SteamVR_Controller.Device device { get { return SteamVR_Controller.Input ((int)trackedObj.index); } }
 
 	void Awake () {
 		trackedObj = GetComponent<SteamVR_TrackedObject> ();
+    controller = GetComponent<SteamVR_TrackedController> ();
+
+    controller.MenuButtonClicked += ShowInstructions;
 	}
 
 	void Update () {
@@ -17,6 +23,10 @@ public class Hands : MonoBehaviour {
 			device.TriggerHapticPulse (500);
 		}
 	}
+
+  void ShowInstructions(object sender, ClickedEventArgs e) {
+    game.ShowInstructions ();
+  }
 
 	void OnTriggerEnter(Collider other) {
 		// handles haptic feedback from object collisions

@@ -7,10 +7,19 @@ public class Menu : MonoBehaviour {
 	public GameManager game;
 	public GameObject startScreen;
 	public GameObject gameOverScreen;
+  public GameObject limoGameInstructions;
 
 	void Start () {
 		//Invoke("StartTimedLimoGame", 3f); 
 	}
+
+  public void ShowInstructions () {
+    if (!limoGameInstructions.activeSelf) {
+      HideMenus ();
+      gameObject.SetActive (true);
+      limoGameInstructions.SetActive (true);
+    }
+  }
 
 	void OnTriggerEnter (Collider other) {
 		if (other.gameObject.tag == "Rose") {
@@ -32,6 +41,7 @@ public class Menu : MonoBehaviour {
 	void HideMenus() {
 		gameObject.SetActive(false);
 		startScreen.SetActive(false);
+    limoGameInstructions.SetActive (false);
 		gameOverScreen.SetActive(false);
 	}
 

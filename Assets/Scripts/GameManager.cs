@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject limo;
 	public Menu menu;
 
+  bool playingGame = false;
+
 	public Transform playerArea;
 	public Transform mansionDoor;
 	public Transform towardElimination;
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour {
 	int goodGuysSlappedCount;
 
 	public void StartTimedLimoGame () {
+    playingGame = true;
     scoring.ResetScores();
     scoring.transform.gameObject.SetActive(true);
 		timer.SetTimer(90f);
@@ -38,11 +41,18 @@ public class GameManager : MonoBehaviour {
 		newLimo.transform.Find("Spawner").GetComponent<Spawner>().game = this;
 	}
 
+  public void ShowInstructions () {
+    if (!playingGame) {
+      menu.ShowInstructions ();
+    }
+  }
+
 	public void StartTimer () {
 		timer.StartCountdown();
 	}
 
 	public void GameOver () {
+    playingGame = false;
 		DestroyAllWithTag("Prop");
 		DestroyAllWithTag("Suitor");
 
