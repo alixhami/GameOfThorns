@@ -26,8 +26,8 @@ public class Hands : MonoBehaviour {
 
 		// handles slap
 		if (other.gameObject.tag == "Face") {
-      GameObject character = other.gameObject.transform.root.gameObject;
-      character.GetComponent<Movement>().GetSlapped();
+      		GameObject character = other.gameObject.transform.root.gameObject;
+      		character.GetComponent<Movement>().GetSlapped();
 			
 
 			float pulseIntensity = Mathf.Clamp(device.velocity.magnitude/6f, 0f, 1f);

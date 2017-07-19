@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour {
 	Animator anim;
 	Rigidbody rb;
 	string[] suitorTypes = new string[]{"Good", "Drunk"};
-  public string suitorType;
+  	public string suitorType;
 	public bool goodGuy;
 	public bool receivedRose;
 
@@ -24,18 +24,17 @@ public class Movement : MonoBehaviour {
 	float accuracyWP;
 	NavMeshAgent agent;
   
-  public GameManager game;
+	public GameManager game;
 
 	AudioSource audioSource;
 	public AudioClip sipSound;
 	public AudioClip burpSound;
 	public AudioClip refreshedSound;
 	public AudioClip roseHitSound;
-  public AudioClip slapSound;
 
 	void Awake () {
 		anim = GetComponent<Animator> ();
-    agent = GetComponent<NavMeshAgent> ();
+    	agent = GetComponent<NavMeshAgent> ();
 		suitorType = suitorTypes [Random.Range (0, suitorTypes.Length)];
 		goodGuy = suitorType == "Good";
 		accuracyWP = 1.0f;
@@ -98,16 +97,15 @@ public class Movement : MonoBehaviour {
 		audioSource.PlayOneShot (suitorType == "Drunk" ? burpSound : refreshedSound);
 	}
 
-  public void GetSlapped () {
-    audioSource.PlayOneShot (slapSound);
+	public void GetSlapped () {
 
-    if (goodGuy) {
-      game.GoodGuySlapped(receivedRose);
-    } else {
-      game.VillainSlapped(receivedRose);
-    }
+		if (goodGuy) {
+	  		game.GoodGuySlapped(receivedRose);
+		} else {
+	  		game.VillainSlapped(receivedRose);
+		}
 
-    Destroy(gameObject);
-  }
+		Destroy(gameObject);
+	}
 
 }

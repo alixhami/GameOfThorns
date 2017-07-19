@@ -4,30 +4,35 @@ using UnityEngine;
 
 public class Menu : MonoBehaviour {
 
-  public GameManager game;
-  public GameObject startScreen;
-  public GameObject gameOverScreen;
+	public GameManager game;
+	public GameObject startScreen;
+	public GameObject gameOverScreen;
 
-  void Start () {
-    //Invoke("StartTimedLimoGame", 3f); 
-  }
+	void Start () {
+		//Invoke("StartTimedLimoGame", 3f); 
+	}
 
-  void OnTriggerEnter (Collider other) {
-    if (other.gameObject.tag == "Rose") {
-      StartTimedLimoGame(); 
-    }
-  }
+	void OnTriggerEnter (Collider other) {
+		if (other.gameObject.tag == "Rose") {
+			StartTimedLimoGame(); 
+		}
+	}
 
-  void StartTimedLimoGame () {
-    gameObject.SetActive(false);
-    startScreen.SetActive(false);
-    gameOverScreen.SetActive(false);
-    game.StartTimedLimoGame();
-  }
+	void StartTimedLimoGame () {
+		HideMenus ();
+		game.StartTimedLimoGame();
+	}
 
-  public void DisplayGameOverMenu () {
-    gameOverScreen.SetActive(true);
-  }
+	public void DisplayGameOverMenu () {
+		gameOverScreen.SetActive(true);
+		gameObject.SetActive (true);
+	}
+
+	void HideMenus() {
+		gameObject.SetActive(false);
+		startScreen.SetActive(false);
+		gameOverScreen.SetActive(false);
+	}
 
 
 }

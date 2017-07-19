@@ -10,22 +10,29 @@ public class Scoring : MonoBehaviour {
 	public Text villainCountDisplay;
 	public Text goodGuyCountDisplay;
 
-  void Start () {
-    UpdateScores();
-  }
+	void Start () {
+		UpdateScores();
+	}
 
-  public void ChangeVillainCount (int num) {
-    villainCount += num;
-    UpdateScores ();
-  }
+	public void ChangeVillainCount (int num) {
+		villainCount += num;
+		UpdateScores ();
+	}
 
-  public void ChangeGoodGuyCount (int num) {
-    goodGuyCount += num;
-    UpdateScores();
-  }
+	public void ChangeGoodGuyCount (int num) {
+		goodGuyCount += num;
+		UpdateScores();
+	}
 
 	void UpdateScores () {
 		goodGuyCountDisplay.text = goodGuyCount.ToString();
 		villainCountDisplay.text = villainCount.ToString();
 	}
+
+	void ResetScores () {
+		villainCount = 0;
+		goodGuyCount = 0;
+		UpdateScores ();
+	}
 }
+
