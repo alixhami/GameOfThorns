@@ -24,6 +24,7 @@ public class Menu : MonoBehaviour {
 	}
 
 	public void DisplayGameOverMenu () {
+    //Invoke("StartTimedLimoGame", 3f); 
 		gameOverScreen.SetActive(true);
 		gameObject.SetActive (true);
 	}

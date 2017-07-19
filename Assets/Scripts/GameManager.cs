@@ -31,8 +31,9 @@ public class GameManager : MonoBehaviour {
 	int goodGuysSlappedCount;
 
 	public void StartTimedLimoGame () {
-		scoring.transform.gameObject.SetActive(true);
-		timer.SetTimer(200f);
+    scoring.ResetScores();
+    scoring.transform.gameObject.SetActive(true);
+		timer.SetTimer(90f);
 		GameObject newLimo = Instantiate(limo);
 		newLimo.transform.Find("Spawner").GetComponent<Spawner>().game = this;
 	}

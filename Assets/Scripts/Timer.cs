@@ -20,6 +20,7 @@ public class Timer : MonoBehaviour {
 	}
 
   public void SetTimer (float seconds) {
+    text.text = null;
     gameObject.SetActive(true);
     timeLeft = seconds;
   }

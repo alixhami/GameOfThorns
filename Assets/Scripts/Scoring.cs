@@ -29,7 +29,7 @@ public class Scoring : MonoBehaviour {
 		villainCountDisplay.text = villainCount.ToString();
 	}
 
-	void ResetScores () {
+	public void ResetScores () {
 		villainCount = 0;
 		goodGuyCount = 0;
 		UpdateScores ();
