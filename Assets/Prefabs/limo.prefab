@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 114727792241549778}
   m_Layer: 0
   m_Name: limo
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -840,4 +840,4 @@ MonoBehaviour:
   mansionDoor: {fileID: 0}
   towardElimination: {fileID: 0}
   eliminationSpot: {fileID: 0}
-  scoring: {fileID: 0}
+  game: {fileID: 0}

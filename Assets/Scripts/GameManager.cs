@@ -1,11 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
+  private static GameManager gameManagerInstance;
+
+  public Timer timer;
   public Scoring scoring;
   public PlayerAlerts playerAlerts;
+  public GameObject limo;
+  public Menu menu;
+
+  public Transform playerArea;
+  public Transform mansionDoor;
+  public Transform towardElimination;
+  public Transform eliminationSpot;
+
   public AudioSource music;
   public AudioSource soundEffects;
 
@@ -17,6 +29,33 @@ public class GameManager : MonoBehaviour {
   int villainsSlappedCount;
   int goodGuysWithRosesCount;
   int goodGuysSlappedCount;
+
+  public void StartTimedLimoGame () {
+    scoring.transform.gameObject.SetActive(true);
+    timer.SetTimer(10f);
+    GameObject newLimo = Instantiate(limo);
+    newLimo.transform.Find("Spawner").GetComponent<Spawner>().game = this;
+  }
+
+  public void StartTimer () {
+    timer.StartCountdown();
+  }
+
+  public void GameOver () {
+    DestroyAllWithTag("Prop");
+    DestroyAllWithTag("Suitor");
+
+    timer.gameObject.SetActive(false);
+    menu.DisplayGameOverMenu();
+  }
+
+  void DestroyAllWithTag (string tag) {
+    GameObject[] targets = GameObject.FindGameObjectsWithTag (tag);
+   
+    for(var i = 0 ; i < targets.Length ; i ++) {
+      Destroy(targets[i]);
+    }
+  }
 
   public void VillainSneaksIn () {
     playerAlerts.displayNegativeAlert("A villain snuck in!");
