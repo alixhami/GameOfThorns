@@ -834,8 +834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnees:
-  - {fileID: 1341441759209672, guid: 1d3b1a1513de66247974634911345b98, type: 2}
-  - {fileID: 1364409443158016, guid: 0cc0ae41dcd136544929c035253ce964, type: 2}
+  - {fileID: 1350787788661240, guid: c30a2754cae97cc49b3bc5af14b314b9, type: 2}
   playerArea: {fileID: 0}
   mansionDoor: {fileID: 0}
   towardElimination: {fileID: 0}
