@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour {
 	Animator anim;
 	Rigidbody rb;
 	string[] suitorTypes = new string[]{"Good", "Drunk"};
-  	public string suitorType;
+  public string suitorType;
 	public bool goodGuy;
 	public bool receivedRose;
 
@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour {
 
 	void Awake () {
 		anim = GetComponent<Animator> ();
-    	agent = GetComponent<NavMeshAgent> ();
+    agent = GetComponent<NavMeshAgent> ();
 		suitorType = suitorTypes [Random.Range (0, suitorTypes.Length)];
 		goodGuy = suitorType == "Good";
 		accuracyWP = 1.0f;

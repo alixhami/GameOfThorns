@@ -15,10 +15,12 @@ public class GameManager : MonoBehaviour {
 
   bool playingGame = false;
 
+  // waypoints to pass to spawner
 	public Transform playerArea;
 	public Transform mansionDoor;
 	public Transform towardElimination;
 	public Transform eliminationSpot;
+  public Transform[] limoDestinations;
 
 	public AudioSource music;
 	public AudioSource soundEffects;
@@ -34,12 +36,30 @@ public class GameManager : MonoBehaviour {
 
 	public void StartTimedLimoGame () {
     playingGame = true;
+
     scoring.ResetScores();
     scoring.transform.gameObject.SetActive(true);
 		timer.SetTimer(90f);
 		GameObject newLimo = Instantiate(limo);
-		newLimo.transform.Find("Spawner").GetComponent<Spawner>().game = this;
+    
+    Limo limoController = newLimo.GetComponent<Limo>();
+    limoController.spawner.game = this;
+    limoController.target = limoDestinations[0];
+    limoController.spawnInterval = limoController.fastSpawnInterval;
 	}
+
+  // wip
+  public void StartSurvivalLimoGame () {
+    playingGame = true;
+
+    scoring.ResetScores();
+    GameObject newLimo = Instantiate(limo);
+
+    Limo limoController = newLimo.GetComponent<Limo>();
+    limoController.spawner.game = this;
+    limoController.target = limoDestinations[0];
+    limoController.spawnInterval = limoController.fastSpawnInterval;
+  }
 
   public void ShowInstructions () {
     if (!playingGame) {

@@ -15,17 +15,17 @@ public class Spawner : MonoBehaviour {
 	int randomSpawnIndex;
   public GameManager game;
 
-  void Awake () {
+  void Start () {
     playerArea = game.playerArea;
     mansionDoor = game.mansionDoor;
     towardElimination = game.towardElimination;
     eliminationSpot = game.eliminationSpot;
   }
 
-	void Start () {
-		InvokeRepeating("SpawnRandom", 1f, 4f);
+  public void StartSpawning(float spawnInterval) {
+    InvokeRepeating("SpawnRandom", 2f, spawnInterval);
     Invoke("StartTimer", 1f);
-	}
+  }
 
   void StartTimer () {
     game.StartTimer();

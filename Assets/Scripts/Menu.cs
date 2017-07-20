@@ -10,7 +10,7 @@ public class Menu : MonoBehaviour {
   public GameObject limoGameInstructions;
 
 	void Start () {
-		//Invoke("StartTimedLimoGame", 3f); 
+		Invoke("StartTimedLimoGame", 3f); 
 	}
 
   public void ShowInstructions () {
