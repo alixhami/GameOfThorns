@@ -11,6 +11,7 @@ TagManager:
   - Face
   - Suitor
   - Prop
+  - GameCard
   layers:
   - Default
   - TransparentFX
