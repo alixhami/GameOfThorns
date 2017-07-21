@@ -8,11 +8,7 @@ public class Menu : MonoBehaviour {
 	public GameObject startScreen;
 	public GameObject gameOverScreen;
   public GameObject limoGameInstructions;
-
-	void Start () {
-		//Invoke("StartSurvivalLimoGame", 3f); 
-	}
-
+   
   public void ShowInstructions () {
     if (!limoGameInstructions.activeSelf) {
       HideMenus ();
@@ -22,9 +18,11 @@ public class Menu : MonoBehaviour {
   }
 
 	void OnTriggerEnter (Collider other) {
-		if (other.gameObject.tag == "Rose") {
-			StartTimedLimoGame(); 
-		}
+    if (other.gameObject.tag == "Rose") {
+      StartTimedLimoGame (); 
+    } else if (other.gameObject.tag == "Beer") {
+      StartSurvivalLimoGame();
+    }
 	}
 
 	void StartTimedLimoGame () {
@@ -38,7 +36,6 @@ public class Menu : MonoBehaviour {
   }
 
 	public void DisplayGameOverMenu () {
-    //Invoke("StartTimedLimoGame", 3f); 
 		gameOverScreen.SetActive(true);
 		gameObject.SetActive (true);
 	}

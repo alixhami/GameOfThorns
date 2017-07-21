@@ -127,10 +127,14 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void VillainGetsRose () {
-		StartCoroutine (PlaySoundDelayed(badAlertSound, 0.2f));
-		playerAlerts.displayNegativeAlert("He's a villain!");
-		villainsWithRosesCount ++;
-		scoring.ChangeVillainCount(1);
+    StartCoroutine (PlaySoundDelayed (badAlertSound, 0.2f));
+    playerAlerts.displayNegativeAlert ("He's a villain!");
+    villainsWithRosesCount++;
+    scoring.ChangeVillainCount (1);
+
+    if (survivalMode) {
+      GameOver();
+    }
 	}
 
 	public void VillainSlapped (bool hasRose) {
@@ -151,13 +155,17 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void GoodGuySlapped (bool hasRose) {
-		soundEffects.PlayOneShot (slapSound);
-		playerAlerts.displayNegativeAlert("He was a good guy!");
-		StartCoroutine (PlaySoundDelayed(badAlertSound, 0.2f));
-		goodGuysSlappedCount ++;
-		if (hasRose) {
-			scoring.ChangeGoodGuyCount (-1);
-		}
+    soundEffects.PlayOneShot (slapSound);
+    playerAlerts.displayNegativeAlert ("He was a good guy!");
+    StartCoroutine (PlaySoundDelayed (badAlertSound, 0.2f));
+    goodGuysSlappedCount++;
+    if (hasRose) {
+      scoring.ChangeGoodGuyCount (-1);
+    }
+
+    if (survivalMode) {
+      GameOver();
+    }
 	}
 
 	IEnumerator PlaySoundDelayed (AudioClip clip, float delay) {
