@@ -8,19 +8,27 @@ public class GameManager : MonoBehaviour {
 	private static GameManager gameManagerInstance;
 
 	public Timer timer;
+  public Stopwatch stopwatch;
 	public Scoring scoring;
 	public PlayerAlerts playerAlerts;
 	public GameObject limo;
 	public Menu menu;
 
-  bool playingGame = false;
+  public bool playingGame = false;
+  public bool survivalMode;
+  public bool activeStopwatch;
 
   // waypoints to pass to spawner
+  public Transform towardPlayer;
 	public Transform playerArea;
 	public Transform mansionDoor;
 	public Transform towardElimination;
 	public Transform eliminationSpot;
   public Transform[] limoDestinations;
+
+  public float slowSpawnInterval = 7f;
+  public float mediumSpawnInterval = 6f;
+  public float fastSpawnInterval = 4f;
 
 	public AudioSource music;
 	public AudioSource soundEffects;
@@ -36,29 +44,40 @@ public class GameManager : MonoBehaviour {
 
 	public void StartTimedLimoGame () {
     playingGame = true;
+    survivalMode = false;
 
+    stopwatch.Hide();
     scoring.ResetScores();
     scoring.transform.gameObject.SetActive(true);
 		timer.SetTimer(90f);
-		GameObject newLimo = Instantiate(limo);
-    
-    Limo limoController = newLimo.GetComponent<Limo>();
-    limoController.spawner.game = this;
-    limoController.target = limoDestinations[0];
-    limoController.spawnInterval = limoController.fastSpawnInterval;
-	}
 
-  // wip
+    CreateLimo(limoDestinations[0], fastSpawnInterval);
+	}
+  
   public void StartSurvivalLimoGame () {
     playingGame = true;
+    survivalMode = true;
 
-    scoring.ResetScores();
+    scoring.Hide();
+    stopwatch.ResetTime();
+
+    StartCoroutine(CreateMultipleLimos(40f, slowSpawnInterval));
+  }
+
+  void CreateLimo (Transform destination, float spawnInterval) {
     GameObject newLimo = Instantiate(limo);
 
     Limo limoController = newLimo.GetComponent<Limo>();
     limoController.spawner.game = this;
-    limoController.target = limoDestinations[0];
-    limoController.spawnInterval = limoController.fastSpawnInterval;
+    limoController.target = destination;
+    limoController.spawnInterval = spawnInterval;
+  }
+
+  IEnumerator CreateMultipleLimos (float delay, float spawnInterval) {
+    for (int i = 0; i < limoDestinations.Length; i++) {
+      CreateLimo(limoDestinations[i], spawnInterval);
+      yield return new WaitForSeconds(delay);
+    }
   }
 
   public void ShowInstructions () {
@@ -71,12 +90,17 @@ public class GameManager : MonoBehaviour {
 		timer.StartCountdown();
 	}
 
+  public void StartStopwatch () {
+    stopwatch.StartTiming();
+  }
+
 	public void GameOver () {
     playingGame = false;
 		DestroyAllWithTag("Prop");
 		DestroyAllWithTag("Suitor");
 
-		timer.hideTimer ();
+		timer.Hide ();
+    stopwatch.StopTime();
 		playerAlerts.hideMessage ();
 		menu.DisplayGameOverMenu();
 	}
@@ -90,10 +114,16 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void VillainSneaksIn () {
-		playerAlerts.displayNegativeAlert("A villain snuck in!");
-		soundEffects.PlayOneShot(badAlertSound);
-		scoring.ChangeVillainCount(1);
-		villainsSnuckInCount ++;
+    playerAlerts.displayNegativeAlert ("A villain snuck in!");
+    soundEffects.PlayOneShot (badAlertSound);
+
+    if (survivalMode) {
+      GameOver();
+    } else {
+      scoring.ChangeVillainCount(1);
+      villainsSnuckInCount ++;
+    }
+		
 	}
 
 	public void VillainGetsRose () {
@@ -105,8 +135,6 @@ public class GameManager : MonoBehaviour {
 
 	public void VillainSlapped (bool hasRose) {
 		soundEffects.PlayOneShot (slapSound);
-		//playerAlerts.displayPositiveAlert("Eliminated a villain!");
-		// need cheering sound
 		villainsSlappedCount ++;
 		if (hasRose) {
 			villainsWithRosesCount --;
@@ -119,7 +147,6 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void GoodGuyGetsRose () {
-		//playerAlerts.displayPositiveAlert("What a catch!");
 		scoring.ChangeGoodGuyCount(1);
 	}
 

@@ -12,9 +12,6 @@ public class Limo : MonoBehaviour {
   public Spawner spawner;
 
   public float spawnInterval;
-  public float slowSpawnInterval = 7f;
-  public float mediumSpawnInterval = 6f;
-  public float fastSpawnInterval = 4f;
 
   NavMeshAgent agent;
   public Transform target;
@@ -43,8 +40,10 @@ public class Limo : MonoBehaviour {
   }
 
   public void OpenDoor () {
-    anim.SetTrigger("OpenDoor");
-    spawner.StartSpawning(spawnInterval);
+    GetComponent<NavMeshAgent>().enabled = false;
+    gameObject.isStatic = true;
+    anim.SetTrigger ("OpenDoor");
+    spawner.StartSpawning (spawnInterval);
   }
 
   public void PlayDrivingSound () {

@@ -2334,7 +2334,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!82 &82162937603258118
 AudioSource:
@@ -2459,6 +2459,7 @@ MonoBehaviour:
   suitorType: 
   goodGuy: 0
   receivedRose: 0
+  towardPlayer: {fileID: 0}
   playerArea: {fileID: 0}
   mansionDoor: {fileID: 0}
   towardElimination: {fileID: 0}

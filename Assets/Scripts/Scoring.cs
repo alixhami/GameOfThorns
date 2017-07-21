@@ -29,6 +29,10 @@ public class Scoring : MonoBehaviour {
 		villainCountDisplay.text = villainCount.ToString();
 	}
 
+  public void Hide () {
+    gameObject.SetActive(false);
+  }
+
 	public void ResetScores () {
 		villainCount = 0;
 		goodGuyCount = 0;

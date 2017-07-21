@@ -7,28 +7,25 @@ public class Spawner : MonoBehaviour {
 
 	public GameObject[] spawnees;
 
-	public Transform playerArea;
-	public Transform mansionDoor;
-	public Transform towardElimination;
-	public Transform eliminationSpot;
-
 	int randomSpawnIndex;
   public GameManager game;
 
-  void Start () {
-    playerArea = game.playerArea;
-    mansionDoor = game.mansionDoor;
-    towardElimination = game.towardElimination;
-    eliminationSpot = game.eliminationSpot;
-  }
+  public void StartSpawning (float spawnInterval) {
+    InvokeRepeating ("SpawnRandom", 2f, spawnInterval);
 
-  public void StartSpawning(float spawnInterval) {
-    InvokeRepeating("SpawnRandom", 2f, spawnInterval);
-    Invoke("StartTimer", 1f);
+    if (!game.survivalMode) {
+      Invoke ("StartTimer", 2f);
+    } else if (game.survivalMode && !game.activeStopwatch) {
+      Invoke ("StartStopwatch", 2f);
+    }
   }
 
   void StartTimer () {
     game.StartTimer();
+  }
+
+  void StartStopwatch () {
+    game.StartStopwatch();
   }
 
 	void SpawnRandom () {
@@ -38,9 +35,5 @@ public class Spawner : MonoBehaviour {
 
 		Movement movement = newSpawn.GetComponent<Movement> ();
     movement.game = game;
-		movement.playerArea = playerArea;
-		movement.mansionDoor = mansionDoor;
-		movement.towardElimination = towardElimination;
-		movement.eliminationSpot = eliminationSpot;
 	}
 }

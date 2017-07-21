@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour {
 	public bool goodGuy;
 	public bool receivedRose;
 
+  public Transform towardPlayer;
 	public Transform playerArea;
 	public Transform mansionDoor;
 	public Transform towardElimination;
@@ -42,13 +43,21 @@ public class Movement : MonoBehaviour {
 	}
 
 	void Start () {
-		currentDestination = playerArea;
+    towardPlayer = game.towardPlayer;
+    playerArea = game.playerArea;
+    mansionDoor = game.mansionDoor;
+    towardElimination = game.towardElimination;
+    eliminationSpot = game.eliminationSpot;
+
+		currentDestination = towardPlayer;
 		Move();
 	}
 
 	void Update () {
-		if (Vector3.Distance (currentDestination.transform.position, transform.position) < accuracyWP) {
-			if (currentDestination == playerArea) {
+    if (Vector3.Distance (currentDestination.transform.position, transform.position) < accuracyWP) {
+      if (currentDestination == towardPlayer) {
+        currentDestination = playerArea;
+      } else if (currentDestination == playerArea) {
 				currentDestination = (receivedRose || !goodGuy) ? mansionDoor : towardElimination;
 			} else if (currentDestination == towardElimination) {
 				currentDestination = eliminationSpot;
