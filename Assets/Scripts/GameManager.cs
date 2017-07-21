@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour {
     scoring.Hide();
     stopwatch.ResetTime();
 
-    StartCoroutine(CreateMultipleLimos(40f, slowSpawnInterval));
+    StartCoroutine(CreateMultipleLimos(37f, slowSpawnInterval));
   }
 
   void CreateLimo (Transform destination, float spawnInterval) {
@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour {
 
 	public void GameOver () {
     playingGame = false;
+    StopAllCoroutines ();
 		DestroyAllWithTag("Prop");
 		DestroyAllWithTag("Suitor");
 
