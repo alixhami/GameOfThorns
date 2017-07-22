@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class Spawner : MonoBehaviour {
 
 	public GameObject[] spawnees;
-
+  
 	int randomSpawnIndex;
   public GameManager game;
 

@@ -8,8 +8,7 @@ public class PlayerAlerts : MonoBehaviour {
 	Text text;
 	Color32 positiveAlertColor = new Color32(201, 168, 34, 255);
 	Color32 negativeAlertColor = new Color32(154, 38, 55, 255);
-
-
+  
 	float messageLifetime = 4f;
 
 	void Awake () {

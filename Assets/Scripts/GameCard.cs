@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class GameCard : MonoBehaviour {
 
-    public string gameName;
-    public event System.Action<string> TriggerGame = delegate { };
+  public string gameName;
+  public event System.Action<string> TriggerGame = delegate { };
 
-    void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == "GameController") {
-            TriggerGame(gameName);
-        }
+  void OnTriggerEnter(Collider other) {
+    if (other.gameObject.tag == "GameController") {
+      TriggerGame(gameName);
     }
+  }
 
 }

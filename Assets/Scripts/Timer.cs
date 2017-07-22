@@ -40,7 +40,7 @@ public class Timer : MonoBehaviour {
       if(timeLeft <= 0) {
         countingDown = false;
         timeLeft = 0;
-        game.GameOver();
+        game.GameOver("HEY GUYS");
       }
     }
   }

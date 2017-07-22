@@ -107,13 +107,6 @@ public class Movement : MonoBehaviour {
 	}
 
 	public void GetSlapped () {
-
-		if (goodGuy) {
-	  		game.GoodGuySlapped(receivedRose);
-		} else {
-	  		game.VillainSlapped(receivedRose);
-		}
-
 		Destroy(gameObject);
 	}
 
