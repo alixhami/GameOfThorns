@@ -49,7 +49,7 @@ Material:
     m_Floats:
     - _ReflDistort: 0.37
     - _RefrDistort: 0.4
-    - _WaveScale: 0.063
+    - _WaveScale: 0.034
     m_Colors:
     - WaveSpeed: {r: 9, g: 4.5, b: -8, a: -3.5}
     - _BumpMap_ST: {r: 1, g: 1, b: 0, a: 0}
@@ -60,7 +60,7 @@ Material:
     - _ReflectionTex_ST: {r: 1, g: 1, b: 0, a: 0}
     - _ReflectiveColorCube_ST: {r: 1, g: 1, b: 0, a: 0}
     - _ReflectiveColor_ST: {r: 1, g: 1, b: 0, a: 0}
-    - _RefrColor: {r: 0.2794118, g: 0.2794118, b: 0.2794118, a: 1}
+    - _RefrColor: {r: 0.75735295, g: 0.75735295, b: 0.75735295, a: 1}
     - _RefractionTex_ST: {r: 1, g: 1, b: 0, a: 0}
 --- !u!1002 &2100001
 EditorExtensionImpl:
