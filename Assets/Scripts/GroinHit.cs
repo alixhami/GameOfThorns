@@ -8,7 +8,9 @@ public class GroinHit : MonoBehaviour {
   public event System.Action TriggerGroinHit = delegate { };
 
   void OnTriggerEnter(Collider other) {
-    TriggerGroinHit();
+    if (other.gameObject.tag == "Rose") {
+      TriggerGroinHit();
+    }
   }
 
 }

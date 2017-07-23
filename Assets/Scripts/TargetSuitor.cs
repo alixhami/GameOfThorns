@@ -24,13 +24,16 @@ public class TargetSuitor : MonoBehaviour {
   };
 
   bool isJoke;
-  string name;
+  string suitorName;
   int age;
   string job;
 
   bool hasRose = false;
 
   Animator anim;
+  AudioSource audioSource;
+  public AudioClip painSound;
+  public AudioClip celebrationSound;
   public GroinHit groin;
   public ItemMagnet chest;
   public TextMeshPro cardLine1;
@@ -38,6 +41,8 @@ public class TargetSuitor : MonoBehaviour {
 
   void Awake () {
     anim = GetComponent<Animator> ();
+    audioSource = GetComponent<AudioSource> ();
+    anim.SetFloat ("IdleOffset", Random.value);
   }
 
 	void Start () {
@@ -45,14 +50,17 @@ public class TargetSuitor : MonoBehaviour {
 
     groin.TriggerGroinHit += HitInGroin;
     chest.GotRose += GetRose;
-
 	}
 
   void GetRose () {
-    
+    hasRose = true;
+
+    audioSource.PlayOneShot (celebrationSound);
+    anim.SetTrigger ("GetRose");
   }
 
   void HitInGroin () {
+    audioSource.PlayOneShot (painSound);
     anim.SetTrigger ("GroinHit");
   }
 
@@ -63,7 +71,7 @@ public class TargetSuitor : MonoBehaviour {
   }
 
   void Randomize () {
-    name = names [Random.Range (0, names.Length)];
+    suitorName = names [Random.Range (0, names.Length)];
     age = Random.Range (24, 37);
 
     isJoke = (Random.value < 0.5);
@@ -73,7 +81,7 @@ public class TargetSuitor : MonoBehaviour {
       job = normalJobs [Random.Range (0, normalJobs.Length)];
     }
 
-    cardLine1.text = string.Concat (name, ", ", age);
+    cardLine1.text = string.Concat (suitorName, ", ", age);
     cardLine2.text = job;
   }
 	

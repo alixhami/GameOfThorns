@@ -1926,15 +1926,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1731198104359606}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 2, y: 0.244, z: 3.053}
+  m_LocalRotation: {x: -0, y: 0.99623704, z: -0, w: -0.08667011}
+  m_LocalPosition: {x: 0.4, y: 0.244, z: 3.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4119431091520368}
   - {fileID: 4794821104114982}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 189.94398, z: 0}
 --- !u!4 &4558092172773962
 Transform:
   m_ObjectHideFlags: 1
@@ -2829,6 +2829,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 632241f4e4d7ca1428835666d9824739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  painSound: {fileID: 8300000, guid: 52ba7846aa3930f4bb6378fc9067b033, type: 3}
+  celebrationSound: {fileID: 8300000, guid: 9f37949bf8486b44d8682246c030c9d4, type: 3}
   groin: {fileID: 114592926412141692}
   chest: {fileID: 114684684119372034}
   cardLine1: {fileID: 114204779975066924}
@@ -2880,8 +2882,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 0.65
-  m_fontSizeBase: 0.65
+  m_fontSize: 0.69
+  m_fontSizeBase: 0.69
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3617,5 +3619,5 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -0.060000002}
-  m_SizeDelta: {x: 0.55, y: 0.15}
+  m_SizeDelta: {x: 0.55, y: 0.17}
   m_Pivot: {x: 0.5, y: 0.5}
