@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
 
-  public GameManager game;
   float timeLeft;
   bool countingDown = false;
+  public event System.Action OutOfTime = delegate { };
      
   public Text text;
 
@@ -40,7 +40,7 @@ public class Timer : MonoBehaviour {
       if(timeLeft <= 0) {
         countingDown = false;
         timeLeft = 0;
-        game.GameOver("HEY GUYS");
+        OutOfTime ();
       }
     }
   }

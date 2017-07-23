@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour {
 	public PlayerAlerts playerAlerts;
 	public GameObject limo;
 	public Menu menu;
+  public TargetPractice targetPractice;
+  public TimedLimo timedLimo;
+  public SurvivalLimo survivalLimo;
   public Hands leftHand;
   public Hands rightHand;
 
@@ -55,6 +58,9 @@ public class GameManager : MonoBehaviour {
 
     leftHand.Slap += Hands_Slap;
     rightHand.Slap += Hands_Slap;
+    targetPractice.GameOver += GameOver;
+    timedLimo.GameOver += GameOver;
+    survivalLimo.GameOver += GameOver;
   }
 
   void Hands_Slap (bool goodGuy, bool receivedRose) {
@@ -91,7 +97,7 @@ public class GameManager : MonoBehaviour {
     scoring.transform.gameObject.SetActive(true);
     timer.SetTimer(90f);
 
-    CreateLimo(limoDestinations[0], fastSpawnInterval);
+    timedLimo.Play ();    
   }
 
   public void StartSurvivalLimoGame () {
@@ -101,27 +107,15 @@ public class GameManager : MonoBehaviour {
     scoring.Hide();
     stopwatch.ResetTime();
 
-    StartCoroutine(CreateMultipleLimos(37f, slowSpawnInterval));
+    survivalLimo.Play ();
   }
 
   public void StartTargetPractice() {
-  }
+    playingGame = true;
+    survivalMode = false;
+    stopwatch.Hide ();
 
-  void CreateLimo (Transform destination, float spawnInterval) {
-    GameObject newLimo = Instantiate(limo);
-
-    Limo limoController = newLimo.GetComponent<Limo>();
-    limoController.spawner.game = this;
-
-    limoController.target = destination;
-    limoController.spawnInterval = spawnInterval;
-  }
-
-  IEnumerator CreateMultipleLimos (float delay, float spawnInterval) {
-    for (int i = 0; i < limoDestinations.Length; i++) {
-      CreateLimo(limoDestinations[i], spawnInterval);
-      yield return new WaitForSeconds(delay);
-    }
+    targetPractice.Play ();
   }
 
   public void ShowInstructions () {

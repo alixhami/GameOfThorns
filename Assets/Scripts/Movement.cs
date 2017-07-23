@@ -44,15 +44,8 @@ public class Movement : MonoBehaviour {
 	}
 
 	void Start () {
-
     chest.GotRose += GetRose;
     chest.GotBeer += GetBeer;
-
-    towardPlayer = game.towardPlayer;
-    playerArea = game.playerArea;
-    mansionDoor = game.mansionDoor;
-    towardElimination = game.towardElimination;
-    eliminationSpot = game.eliminationSpot;
 
 		currentDestination = towardPlayer;
 		Move();

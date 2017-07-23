@@ -6,7 +6,14 @@ using UnityEngine.AI;
 public class Spawner : MonoBehaviour {
 
 	public GameObject[] spawnees;
-  
+
+  // waypoints to pass to suitors
+  public Transform towardPlayer;
+  public Transform playerArea;
+  public Transform mansionDoor;
+  public Transform towardElimination;
+  public Transform eliminationSpot;
+
 	int randomSpawnIndex;
   public GameManager game;
 
@@ -34,6 +41,10 @@ public class Spawner : MonoBehaviour {
 		GameObject newSpawn = Instantiate (spawnees [randomSpawnIndex], transform.position, transform.rotation);
 
 		Movement movement = newSpawn.GetComponent<Movement> ();
-    movement.game = game;
+    movement.towardPlayer = towardPlayer;
+    movement.playerArea = playerArea;
+    movement.mansionDoor = mansionDoor;
+    movement.towardElimination = towardElimination;
+    movement.eliminationSpot = eliminationSpot;
 	}
 }

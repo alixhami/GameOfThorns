@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 195646268699445928}
   - component: {fileID: 95097208302523852}
   m_Layer: 0
-  m_Name: SmartLimo
+  m_Name: Limo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -854,9 +854,6 @@ MonoBehaviour:
   doorOpenSound: {fileID: 8300000, guid: 7001ef88516fd483d8459a83844845a9, type: 3}
   spawner: {fileID: 114816867955283554}
   spawnInterval: 0
-  slowSpawnInterval: 7
-  mediumSpawnInterval: 6
-  fastSpawnInterval: 4
   target: {fileID: 0}
 --- !u!114 &114816867955283554
 MonoBehaviour:
@@ -871,6 +868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnees:
   - {fileID: 1350787788661240, guid: c30a2754cae97cc49b3bc5af14b314b9, type: 2}
+  towardPlayer: {fileID: 0}
   playerArea: {fileID: 0}
   mansionDoor: {fileID: 0}
   towardElimination: {fileID: 0}

@@ -46,8 +46,6 @@ public class TargetSuitor : MonoBehaviour {
   }
 
 	void Start () {
-    Randomize ();
-
     groin.TriggerGroinHit += HitInGroin;
     chest.GotRose += GetRose;
 	}
