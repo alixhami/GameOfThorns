@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: d1feb8966b06a554abf61c0e59b2efe8
+timeCreated: 1500766818
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Thryomanes
+  fontNames:
+  - Thryomanes
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

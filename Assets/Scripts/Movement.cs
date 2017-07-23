@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour {
   public string suitorType;
 	public bool goodGuy;
 	public bool receivedRose;
+  public ItemMagnet chest;
 
   public Transform towardPlayer;
 	public Transform playerArea;
@@ -43,6 +44,10 @@ public class Movement : MonoBehaviour {
 	}
 
 	void Start () {
+
+    chest.GotRose += GetRose;
+    chest.GotBeer += GetBeer;
+
     towardPlayer = game.towardPlayer;
     playerArea = game.playerArea;
     mansionDoor = game.mansionDoor;

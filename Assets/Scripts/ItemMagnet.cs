@@ -7,26 +7,29 @@ public class ItemMagnet : MonoBehaviour {
 	public GameObject character;
 	public Transform roseTarget;
 	public float roseSpeed = 0.1f;
-	private Movement characterMovement;
 
-	void Awake () {
-		characterMovement = character.GetComponent<Movement> ();
-	}
+  bool hasRose = false;
+  GameObject rose;
+  public event System.Action GotRose = delegate { };
+  public event System.Action GotBeer = delegate { };
 
 	void OnTriggerEnter (Collider c) {
 
-		if (c.gameObject.tag == "Rose" && !characterMovement.receivedRose) {
-			c.transform.SetParent (transform);
-			c.transform.GetComponent<Rigidbody> ().isKinematic = true;
+		if (c.gameObject.tag == "Rose" && !hasRose) {
+      rose = c.gameObject;
+      rose.GetComponent<Rose> ().pinned = true;
+      rose.transform.SetParent (transform);
+			rose.transform.GetComponent<Rigidbody> ().isKinematic = true;
 			StopAllCoroutines ();
-			StartCoroutine (moveRoseToTarget (c.transform));
+			StartCoroutine (moveRoseToTarget (rose.transform));
 
-			characterMovement.GetRose ();
+      hasRose = true;
+      GotRose ();
 
 		} else if (c.gameObject.tag == "Beer") {
 			Destroy (c.gameObject);
 
-			characterMovement.GetBeer ();
+      GotBeer ();
 		}
 	}
 
@@ -37,5 +40,10 @@ public class ItemMagnet : MonoBehaviour {
 			yield return new WaitForSeconds (0.01f);
 		}
 	}
+
+  public void ResetRose () {
+    Destroy (rose);
+    hasRose = false;
+  }
 
 }

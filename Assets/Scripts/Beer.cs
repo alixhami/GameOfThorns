@@ -12,6 +12,7 @@ public class Beer : MonoBehaviour {
 
 	void Awake() {
 		audioSource = GetComponent<AudioSource> ();
+    Invoke ("SelfDestruct", 20f);
 	}
 
 	void OnCollisionEnter (Collision other) {
@@ -22,5 +23,9 @@ public class Beer : MonoBehaviour {
 			hasDropped = true;
 		}
 	}
+
+  void SelfDestruct () {
+    Destroy (gameObject);
+  }
 
 }

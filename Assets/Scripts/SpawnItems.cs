@@ -45,11 +45,7 @@ public class SpawnItems: MonoBehaviour {
 			joint = null;
 			holdingItem = false;
 
-			// Code below only runs if item hasn't been consumed by character
-			if (currentItem) {
-			
-				Object.Destroy(currentItem, 15.0f);
-
+      if (currentItem) {
 				var origin = trackedObj.origin ? trackedObj.origin : trackedObj.transform.parent;
 				if (origin != null)
 				{
