@@ -125,7 +125,7 @@ public class LimoGame : MonoBehaviour {
     stopwatch.Hide ();
     StopAllCoroutines ();
 
-    GameOver (string.Concat("Time Survived: ", stopwatch.text.text), feedback);
+    GameOver (string.Concat("Time Survived: ", stopwatch.text.text, " seconds"), feedback);
   }
 
   public void Hide () {

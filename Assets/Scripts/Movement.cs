@@ -39,6 +39,7 @@ public class Movement : MonoBehaviour {
     agent = GetComponent<NavMeshAgent> ();
 		suitorType = suitorTypes [Random.Range (0, suitorTypes.Length)];
 		goodGuy = suitorType == "Good";
+    anim.SetBool ("Villain", !goodGuy);
 		accuracyWP = 1.0f;
 		audioSource = GetComponent<AudioSource> ();
 	}
