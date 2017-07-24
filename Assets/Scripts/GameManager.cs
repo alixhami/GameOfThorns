@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour {
   public bool playingGame = false;
 
 	public AudioSource music;
-  float maxMusicVolume = 0.08f;
-  float musicFadeSpeed = 0.01f;
+  float maxMusicVolume = 0.3f;
+  float musicFadeSpeed = 0.02f;
   public AudioClip seriousMusic;
   public AudioClip hopefulMusic;
 
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour {
     while (music.volume >= musicFadeSpeed) {
       audioVolume -= musicFadeSpeed;
       music.volume = audioVolume;
-      yield return new WaitForSeconds(1f);
+      yield return new WaitForSeconds(0.01f);
     }
 
     music.Stop();
@@ -78,13 +78,13 @@ public class GameManager : MonoBehaviour {
     music.clip = track;
 
     music.Play();
-    music.volume = 0.01f;
+    music.volume = 0f;
     audioVolume = music.volume;
 
     while (music.volume < maxMusicVolume) {
       audioVolume += musicFadeSpeed;
       music.volume = audioVolume;
-      yield return new WaitForSeconds(1f);
+      yield return new WaitForSeconds(0.01f);
     }
   }
 

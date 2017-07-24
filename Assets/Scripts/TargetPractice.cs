@@ -16,7 +16,7 @@ public class TargetPractice : MonoBehaviour {
 
   bool playing = false;
 
-  float timeLimit = 90f;
+  float timeLimit = 10f;
 
   void Start () {
     timer.OutOfTime += Timer_OutOfTime;
@@ -84,6 +84,7 @@ public class TargetPractice : MonoBehaviour {
         feedback = "Half of your bachelors are jokes! Hopefully your judgment improves in the weeks ahead.";
       }
 
+      playing = false;
       GameOver (string.Concat("Bachelor Credibility: ", score), feedback);
     }
   }

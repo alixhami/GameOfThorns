@@ -6,8 +6,8 @@ using TMPro;
 public class PlayerAlerts : MonoBehaviour {
 
 	public TextMeshPro text;
-	Color32 positiveAlertColor = new Color32(159, 30, 11, 139);
-	Color32 negativeAlertColor = new Color32(68, 3, 13, 203);
+	Color32 positiveAlertColor = new Color32(81, 65, 2, 200);
+	Color32 negativeAlertColor = new Color32(41, 5, 10, 200);
   
 	float messageLifetime = 4f;
 
@@ -32,8 +32,7 @@ public class PlayerAlerts : MonoBehaviour {
 		gameObject.SetActive(true);
 		Invoke("hideMessage", messageLifetime);
 	}
-
-	// TODO messages are turning each other off when they appear too close together
+    
 	public void hideMessage () {
 		gameObject.SetActive(false);
 	}

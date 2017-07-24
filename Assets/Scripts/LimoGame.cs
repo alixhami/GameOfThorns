@@ -85,6 +85,7 @@ public class LimoGame : MonoBehaviour {
     // only runs if the timer is for this game
     if (playing) {
       scoring.Hide ();
+      playerAlerts.hideMessage ();
 
       string purityScore;
       string feedback = "";
@@ -116,11 +117,13 @@ public class LimoGame : MonoBehaviour {
       GameOver (string.Concat("Bachelor Purity: ", purityScore), feedback);
     }
   }
-
+    
   void SurvivalGameOver (string feedback) {
     playing = false;
     stopwatch.StopTime ();
     playerAlerts.hideMessage ();
+    stopwatch.Hide ();
+    StopAllCoroutines ();
 
     GameOver (string.Concat("Time Survived: ", stopwatch.text.text), feedback);
   }
