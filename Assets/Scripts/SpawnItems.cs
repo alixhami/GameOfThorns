@@ -9,10 +9,7 @@ public class SpawnItems: MonoBehaviour {
 	SteamVR_TrackedObject trackedObj;
 	FixedJoint joint;
 	public Rigidbody attachPoint;
-	public GameObject rose;
-  public GameObject beer;
-  public GameObject defaultItem;
-  GameObject item;
+  public GameObject item;
 
 	private bool holdingItem = false;
 	private GameObject currentItem;
@@ -21,7 +18,6 @@ public class SpawnItems: MonoBehaviour {
   public bool targetPractice;
 
 	void Awake () {
-    item = defaultItem;
 		controller = GetComponent<SteamVR_TrackedController> ();
 		trackedObj = GetComponent<SteamVR_TrackedObject>();
 
