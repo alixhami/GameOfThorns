@@ -16,7 +16,7 @@ public class TargetPractice : MonoBehaviour {
 
   bool playing = false;
 
-  float timeLimit = 10f;
+  float timeLimit = 90f;
 
   void Start () {
     timer.OutOfTime += Timer_OutOfTime;

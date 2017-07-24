@@ -16,7 +16,7 @@ public class LimoGame : MonoBehaviour {
   public AudioClip slapSound;
 
   public bool activeStopwatch;
-  float timeLimit = 30f;
+  float timeLimit = 90f;
   public event System.Action<string, string> GameOver = delegate { };
 
   public GameObject limo;
