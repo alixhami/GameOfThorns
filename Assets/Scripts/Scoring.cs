@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class Scoring : MonoBehaviour {
 
 	public int villainCount;
 	public int goodGuyCount;
-	public Text villainCountDisplay;
-	public Text goodGuyCountDisplay;
+	public TextMeshPro villainCountDisplay;
+	public TextMeshPro goodGuyCountDisplay;
 
 	void Start () {
 		UpdateScores();

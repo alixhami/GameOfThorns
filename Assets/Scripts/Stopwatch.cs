@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class Stopwatch : MonoBehaviour {
 
@@ -9,7 +9,7 @@ public class Stopwatch : MonoBehaviour {
   float runningTime;
   bool running = false;
      
-  public Text text;
+  public TextMeshPro text;
 
   public void Hide () {
     gameObject.SetActive (false);

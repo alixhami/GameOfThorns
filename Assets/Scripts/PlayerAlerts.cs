@@ -1,19 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class PlayerAlerts : MonoBehaviour {
 
-	Text text;
-	Color32 positiveAlertColor = new Color32(201, 168, 34, 255);
-	Color32 negativeAlertColor = new Color32(154, 38, 55, 255);
+	public TextMeshPro text;
+	Color32 positiveAlertColor = new Color32(159, 30, 11, 139);
+	Color32 negativeAlertColor = new Color32(68, 3, 13, 203);
   
 	float messageLifetime = 4f;
 
 	void Awake () {
 		gameObject.SetActive(false);
-		text = GetComponent<Text>();
 	}
 
 	public void displayPositiveAlert(string message) {
@@ -29,6 +28,7 @@ public class PlayerAlerts : MonoBehaviour {
 	}
 
 	void displayTimedMessage () {
+    CancelInvoke();
 		gameObject.SetActive(true);
 		Invoke("hideMessage", messageLifetime);
 	}

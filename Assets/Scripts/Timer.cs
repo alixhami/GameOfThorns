@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class Timer : MonoBehaviour {
 
@@ -9,11 +9,7 @@ public class Timer : MonoBehaviour {
   bool countingDown = false;
   public event System.Action OutOfTime = delegate { };
      
-  public Text text;
-
-  void Awake () {
-    text = GetComponent<Text>();
-  }
+  public TextMeshPro text;
 
   public void Hide () {
     gameObject.SetActive (false);
