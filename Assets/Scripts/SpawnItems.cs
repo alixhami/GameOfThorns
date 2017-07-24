@@ -9,13 +9,19 @@ public class SpawnItems: MonoBehaviour {
 	SteamVR_TrackedObject trackedObj;
 	FixedJoint joint;
 	public Rigidbody attachPoint;
-	public GameObject item;
+	public GameObject rose;
+  public GameObject beer;
+  public GameObject defaultItem;
+  GameObject item;
 
 	private bool holdingItem = false;
 	private GameObject currentItem;
 	private Rigidbody currentItemRigidbody;
 
+  public bool targetPractice;
+
 	void Awake () {
+    item = defaultItem;
 		controller = GetComponent<SteamVR_TrackedController> ();
 		trackedObj = GetComponent<SteamVR_TrackedObject>();
 
@@ -28,6 +34,7 @@ public class SpawnItems: MonoBehaviour {
 		if (item && !holdingItem) {
 			GameObject newItem = Instantiate(item, transform.position, transform.rotation)as GameObject;
 			newItem.transform.position = attachPoint.transform.position;
+
 			joint = newItem.AddComponent<FixedJoint>();
 			joint.connectedBody = attachPoint;
 
@@ -47,22 +54,16 @@ public class SpawnItems: MonoBehaviour {
 
       if (currentItem) {
 				var origin = trackedObj.origin ? trackedObj.origin : trackedObj.transform.parent;
-				if (origin != null)
-				{
+				if (origin != null) {
 					currentItemRigidbody.velocity = origin.TransformVector(device.velocity);
 					currentItemRigidbody.angularVelocity = origin.TransformVector(device.angularVelocity);
-				}
-				else
-				{
+				} else {
 					currentItemRigidbody.velocity = device.velocity;
 					currentItemRigidbody.angularVelocity = device.angularVelocity;
 				}
 
 				currentItemRigidbody.maxAngularVelocity = currentItemRigidbody.angularVelocity.magnitude;
-			
 			}
-
 		}
-	
 	}
 }

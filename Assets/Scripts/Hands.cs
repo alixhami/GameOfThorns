@@ -31,8 +31,8 @@ public class Hands : MonoBehaviour {
   }
 
 	void OnTriggerEnter(Collider other) {
-		// handles haptic feedback from object collisions
-		if (other.gameObject.tag != "Beer" && other.gameObject.tag != "Rose" && other.gameObject.tag != "GameController" && other.gameObject.tag != "GameCard") {
+		// handles haptic feedback from chest collision
+		if (other.gameObject.tag == "Chest") {
 			hapticFlag = true;	
 		}
 

@@ -986,7 +986,7 @@ GameObject:
   - component: {fileID: 114570093322760842}
   m_Layer: 0
   m_Name: Dan - Target Practice
-  m_TagString: Suitor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2829,7 +2829,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 632241f4e4d7ca1428835666d9824739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   painSound: {fileID: 8300000, guid: 52ba7846aa3930f4bb6378fc9067b033, type: 3}
+  laughSound: {fileID: 8300000, guid: 7c87171825047c84ab5def1467326dcc, type: 3}
   celebrationSound: {fileID: 8300000, guid: 9f37949bf8486b44d8682246c030c9d4, type: 3}
   groin: {fileID: 114592926412141692}
   chest: {fileID: 114684684119372034}

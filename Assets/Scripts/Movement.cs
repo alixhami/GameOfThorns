@@ -26,7 +26,7 @@ public class Movement : MonoBehaviour {
 	float accuracyWP;
 	NavMeshAgent agent;
   
-	public GameManager game;
+	public LimoGame game;
 
 	AudioSource audioSource;
 	public AudioClip sipSound;
@@ -46,6 +46,12 @@ public class Movement : MonoBehaviour {
 	void Start () {
     chest.GotRose += GetRose;
     chest.GotBeer += GetBeer;
+
+    towardPlayer = game.towardPlayer;
+    playerArea = game.playerArea;
+    mansionDoor = game.mansionDoor;
+    towardElimination = game.towardElimination;
+    eliminationSpot = game.eliminationSpot;
 
 		currentDestination = towardPlayer;
 		Move();

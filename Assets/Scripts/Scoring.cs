@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Scoring : MonoBehaviour {
 
-	int villainCount;
-	int goodGuyCount;
+	public int villainCount;
+	public int goodGuyCount;
 	public Text villainCountDisplay;
 	public Text goodGuyCountDisplay;
 
@@ -28,6 +28,10 @@ public class Scoring : MonoBehaviour {
 		goodGuyCountDisplay.text = goodGuyCount.ToString();
 		villainCountDisplay.text = villainCount.ToString();
 	}
+
+  public void Show () {
+    gameObject.SetActive (true);
+  }
 
   public void Hide () {
     gameObject.SetActive(false);

@@ -30,18 +30,21 @@ public class TargetSuitor : MonoBehaviour {
 
   bool hasRose = false;
 
-  Animator anim;
+  public Animator anim;
   AudioSource audioSource;
   public AudioClip painSound;
+  public AudioClip laughSound;
   public AudioClip celebrationSound;
   public GroinHit groin;
   public ItemMagnet chest;
   public TextMeshPro cardLine1;
   public TextMeshPro cardLine2;
 
+  public event System.Action<bool> CountRose = delegate { };
+
   void Awake () {
-    anim = GetComponent<Animator> ();
     audioSource = GetComponent<AudioSource> ();
+    anim = GetComponent<Animator> ();
     anim.SetFloat ("IdleOffset", Random.value);
   }
 
@@ -52,8 +55,13 @@ public class TargetSuitor : MonoBehaviour {
 
   void GetRose () {
     hasRose = true;
+    CountRose (isJoke);
 
-    audioSource.PlayOneShot (celebrationSound);
+    if (isJoke) {
+      audioSource.PlayOneShot (laughSound);
+    } else {
+      audioSource.PlayOneShot (celebrationSound);
+    }
     anim.SetTrigger ("GetRose");
   }
 
@@ -73,6 +81,8 @@ public class TargetSuitor : MonoBehaviour {
     age = Random.Range (24, 37);
 
     isJoke = (Random.value < 0.5);
+    anim.SetBool ("isJoke", isJoke);
+
     if (isJoke) {
       job = weirdJobs [Random.Range (0, weirdJobs.Length)];
     } else {

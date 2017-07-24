@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 114376006599572992}
   - component: {fileID: 114459829403093976}
   - component: {fileID: 114123686966615458}
+  - component: {fileID: 54010337258838710}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: GameController
@@ -78,9 +79,10 @@ GameObject:
   - component: {fileID: 114031109944892332}
   - component: {fileID: 114270466150523872}
   - component: {fileID: 135808232457204134}
+  - component: {fileID: 54705932282379816}
   m_Layer: 0
   m_Name: Controller (left)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -440,6 +442,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1287843070416936}
   m_Mesh: {fileID: 0}
+--- !u!54 &54010337258838710
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1256245797681848}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!54 &54103560587078596
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -461,6 +478,21 @@ Rigidbody:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1050486543223768}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54705932282379816
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1260706433661658}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -793,7 +825,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachPoint: {fileID: 54511917987211088}
-  item: {fileID: 1681379964952200, guid: 0aabe27f2c4874362bfcf06d7360e1a1, type: 2}
+  rose: {fileID: 1681379964952200, guid: 0aabe27f2c4874362bfcf06d7360e1a1, type: 2}
+  beer: {fileID: 1986834264282796, guid: 1b22fe796a1b6e54a94e34da16b119fb, type: 2}
+  defaultItem: {fileID: 1681379964952200, guid: 0aabe27f2c4874362bfcf06d7360e1a1,
+    type: 2}
+  targetPractice: 0
 --- !u!114 &114459829403093976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -951,7 +987,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachPoint: {fileID: 54103560587078596}
-  item: {fileID: 1986834264282796, guid: 1b22fe796a1b6e54a94e34da16b119fb, type: 2}
+  rose: {fileID: 1681379964952200, guid: 0aabe27f2c4874362bfcf06d7360e1a1, type: 2}
+  beer: {fileID: 1986834264282796, guid: 1b22fe796a1b6e54a94e34da16b119fb, type: 2}
+  defaultItem: {fileID: 1986834264282796, guid: 1b22fe796a1b6e54a94e34da16b119fb,
+    type: 2}
+  targetPractice: 0
 --- !u!124 &124048026562758388
 Behaviour:
   m_ObjectHideFlags: 1
@@ -969,7 +1009,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135808232457204134
 SphereCollider:
@@ -981,5 +1021,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}

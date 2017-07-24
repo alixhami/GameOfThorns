@@ -16,12 +16,12 @@ public class Beer : MonoBehaviour {
 	}
 
 	void OnCollisionEnter (Collision other) {
-		if (other.gameObject.tag == "Beer") {
-			audioSource.PlayOneShot (hitBeerSound);
-		} else if (other.gameObject.isStatic && !hasDropped) {
-			audioSource.PlayOneShot (hitGroundSound);
-			hasDropped = true;
-		}
+    if (other.gameObject.tag == "Beer") {
+      audioSource.PlayOneShot (hitBeerSound);
+    } else if (other.gameObject.isStatic && !hasDropped) {
+      audioSource.PlayOneShot (hitGroundSound);
+      hasDropped = true;
+    }
 	}
 
   void SelfDestruct () {

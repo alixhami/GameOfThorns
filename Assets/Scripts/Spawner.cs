@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour {
   public Transform eliminationSpot;
 
 	int randomSpawnIndex;
-  public GameManager game;
+  public LimoGame game;
 
   public void StartSpawning (float spawnInterval) {
     InvokeRepeating ("SpawnRandom", 2f, spawnInterval);
@@ -41,10 +41,6 @@ public class Spawner : MonoBehaviour {
 		GameObject newSpawn = Instantiate (spawnees [randomSpawnIndex], transform.position, transform.rotation);
 
 		Movement movement = newSpawn.GetComponent<Movement> ();
-    movement.towardPlayer = towardPlayer;
-    movement.playerArea = playerArea;
-    movement.mansionDoor = mansionDoor;
-    movement.towardElimination = towardElimination;
-    movement.eliminationSpot = eliminationSpot;
+    movement.game = game;
 	}
 }

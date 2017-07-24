@@ -5,7 +5,7 @@ using UnityEngine;
 public class DestroyIncoming : MonoBehaviour {
 
   public bool isMansionEntrance;
-  public GameManager game;
+  public LimoGame game;
 
   void OnTriggerEnter (Collider other) {
 
