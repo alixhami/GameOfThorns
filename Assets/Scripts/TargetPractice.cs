@@ -57,16 +57,16 @@ public class TargetPractice : MonoBehaviour {
     if (playing) {
       gameObject.SetActive (false);
 
-      string score;
+      string credibility;
       string feedback = "";
       int totalCount = goodCount + badCount;
 
       // Calculate Bachelor Credibility %
       if (totalCount == 0) {
-        score = "N/A";
+        credibility = "N/A";
       } else {
         float percentage = (float)goodCount / totalCount * 100f;
-        score = string.Concat(Mathf.Round(percentage).ToString (), "%");
+        credibility = string.Concat(Mathf.Round(percentage).ToString (), "%");
       }
 
       // Determine feedback
@@ -85,7 +85,7 @@ public class TargetPractice : MonoBehaviour {
       }
 
       playing = false;
-      GameOver (string.Concat("Bachelor Credibility: ", score), feedback);
+      GameOver (string.Concat("Hits: ", totalCount, "  Credibility: ", credibility), feedback);
     }
   }
 }

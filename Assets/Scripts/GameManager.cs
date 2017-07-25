@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour {
 
   public GameObject gameSelectPillars;
   public GameCard[] gameCards;
+  public Instructions instructions;
 
   void Awake () {
     music.volume = maxMusicVolume;
@@ -35,27 +36,32 @@ public class GameManager : MonoBehaviour {
       
     targetPractice.GameOver += GameOver;
     limoGame.GameOver += GameOver;
+    instructions.TriggerGameStart += Instructions_TriggerGameStart;
   }
 
   private void GameCard_TriggerGame (string gameName) {
-    playingGame = true;
-    switch (gameName) {
-      case "LimoTimed":
-        ChangeMusic(hopefulMusic);
-        limoGame.Play (false);
-        break;
-      case "LimoSurvival":
-        ChangeMusic(hopefulMusic);
-        limoGame.Play (true);
-        break;
-      case "TargetPractice":
-        ChangeMusic(seriousMusic);
-        limoGame.Hide ();
-        targetPractice.Play();
-        break;
-    }
     gameSelectPillars.SetActive(false);
     menu.HideMenus();
+    instructions.ShowInstructions (gameName);
+  }
+
+  void Instructions_TriggerGameStart (string gameName) {
+    playingGame = true;
+    switch (gameName) {
+    case "LimoTimed":
+      ChangeMusic(hopefulMusic);
+      limoGame.Play (false);
+      break;
+    case "LimoSurvival":
+      ChangeMusic(hopefulMusic);
+      limoGame.Play (true);
+      break;
+    case "TargetPractice":
+      ChangeMusic(seriousMusic);
+      limoGame.Hide ();
+      targetPractice.Play();
+      break;
+    }
   }
 
   void ChangeMusic (AudioClip track) {

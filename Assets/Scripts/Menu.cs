@@ -14,7 +14,6 @@ public class Menu : MonoBehaviour {
   public void ShowInstructions () {
     if (!limoGameInstructions.activeSelf) {
       HideMenus ();
-      gameObject.SetActive (true);
       limoGameInstructions.SetActive (true);
     }
   }
@@ -23,11 +22,9 @@ public class Menu : MonoBehaviour {
     gameOverScore.text = score;
     gameOverFeedback.text = feedback;
     gameOverScreen.SetActive(true);
-		gameObject.SetActive (true);
 	}
 
 	public void HideMenus() {
-		gameObject.SetActive(false);
 		startScreen.SetActive(false);
     limoGameInstructions.SetActive (false);
 		gameOverScreen.SetActive(false);
