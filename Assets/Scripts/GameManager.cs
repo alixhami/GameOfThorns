@@ -5,15 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-	private static GameManager gameManagerInstance;
+  private static GameManager gameManagerInstance;
 
-	public Menu menu;
+  public Menu menu;
   public TargetPractice targetPractice;
   public LimoGame limoGame;
 
   public bool playingGame = false;
 
-	public AudioSource music;
+  public AudioSource music;
   float maxMusicVolume = 0.3f;
   float musicFadeSpeed = 0.02f;
   public AudioClip seriousMusic;
