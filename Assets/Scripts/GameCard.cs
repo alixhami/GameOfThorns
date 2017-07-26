@@ -8,7 +8,7 @@ public class GameCard : MonoBehaviour {
   public event System.Action<string> TriggerGame = delegate { };
 
   void OnTriggerEnter(Collider other) {
-    if (other.gameObject.tag == "GameController") {
+    if (other.gameObject.tag == "GameController" || other.gameObject.tag == "Rose") {
       TriggerGame(gameName);
     }
   }
