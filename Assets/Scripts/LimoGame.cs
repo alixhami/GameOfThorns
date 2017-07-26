@@ -91,6 +91,7 @@ public class LimoGame : MonoBehaviour {
       string feedback = "";
       int goodGuyCount = scoring.goodGuyCount;
       int villainCount = scoring.villainCount;
+      int totalCount = goodGuyCount + villainCount;
 
       if (goodGuyCount + villainCount == 0) {
         purityScore = "N/A";
@@ -114,7 +115,7 @@ public class LimoGame : MonoBehaviour {
       }
 
       playing = false;
-      GameOver (string.Concat("Bachelor Purity: ", purityScore), feedback);
+      GameOver (string.Concat("Roses Given: ", totalCount, "\nBachelor Purity: ", purityScore), feedback);
     }
   }
     
@@ -125,7 +126,7 @@ public class LimoGame : MonoBehaviour {
     stopwatch.Hide ();
     StopAllCoroutines ();
 
-    GameOver (string.Concat("Time Survived: ", stopwatch.text.text, " seconds"), feedback);
+    GameOver (string.Concat("Time Survived: ", stopwatch.text.text), feedback);
   }
 
   public void Hide () {

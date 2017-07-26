@@ -85,7 +85,7 @@ public class TargetPractice : MonoBehaviour {
       }
 
       playing = false;
-      GameOver (string.Concat("Hits: ", totalCount, "  Credibility: ", credibility), feedback);
+      GameOver (string.Concat("Roses Given: ", totalCount, "\nCredibility: ", credibility), feedback);
     }
   }
 }
