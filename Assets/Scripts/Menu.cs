@@ -9,14 +9,6 @@ public class Menu : MonoBehaviour {
 	public GameObject gameOverScreen;
   public TextMeshPro gameOverScore;
   public TextMeshPro gameOverFeedback;
-  public GameObject limoGameInstructions;
-
-  public void ShowInstructions () {
-    if (!limoGameInstructions.activeSelf) {
-      HideMenus ();
-      limoGameInstructions.SetActive (true);
-    }
-  }
 
 	public void DisplayGameOverMenu (string score, string feedback) {
     gameOverScore.text = score;
@@ -26,7 +18,6 @@ public class Menu : MonoBehaviour {
 
 	public void HideMenus() {
 		startScreen.SetActive(false);
-    limoGameInstructions.SetActive (false);
 		gameOverScreen.SetActive(false);
 	}
 

@@ -121,12 +121,6 @@ public class GameManager : MonoBehaviour {
     }
   }
 
-  public void ShowInstructions () {
-    if (!playingGame) {
-      menu.ShowInstructions ();
-    }
-  }
-
   public void GameOver (string score, string feedback) {
     playingGame = false;
     StopAllCoroutines ();

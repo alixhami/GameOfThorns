@@ -16,8 +16,6 @@ public class Hands : MonoBehaviour {
 	void Awake () {
 		trackedObj = GetComponent<SteamVR_TrackedObject> ();
     controller = GetComponent<SteamVR_TrackedController> ();
-
-    controller.MenuButtonClicked += ShowInstructions;
 	}
 
 	void Update () {
@@ -25,10 +23,6 @@ public class Hands : MonoBehaviour {
 			device.TriggerHapticPulse (500);
 		}
 	}
-
-  void ShowInstructions(object sender, ClickedEventArgs e) {
-    game.ShowInstructions ();
-  }
 
 	void OnTriggerEnter(Collider other) {
 		// handles haptic feedback from chest collision

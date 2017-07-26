@@ -6,10 +6,10 @@ public class GameCard : MonoBehaviour {
 
   public string gameName;
   public event System.Action<string> TriggerGame = delegate { };
-  Collider collider;
+  Collider gameCardCollider;
 
   void Awake () {
-    collider = GetComponent<Collider>();
+    gameCardCollider = GetComponent<Collider>();
   }
 
   void OnTriggerEnter(Collider other) {
@@ -19,11 +19,11 @@ public class GameCard : MonoBehaviour {
   }
 
   public void EnableCollider () {
-    collider.enabled = true;
+    gameCardCollider.enabled = true;
   }
 
   public void DisableCollider () {
-    collider.enabled = false;
+    gameCardCollider.enabled = false;
   }
 
 }
