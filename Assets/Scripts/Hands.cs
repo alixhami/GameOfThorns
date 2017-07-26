@@ -11,11 +11,15 @@ public class Hands : MonoBehaviour {
   private SteamVR_TrackedController controller;
 	private SteamVR_Controller.Device device { get { return SteamVR_Controller.Input ((int)trackedObj.index); } }
 
+  AudioSource audioSource;
+  public AudioClip hitSound;
+
   public event System.Action<bool, bool> Slap = delegate { };
 
 	void Awake () {
 		trackedObj = GetComponent<SteamVR_TrackedObject> ();
     controller = GetComponent<SteamVR_TrackedController> ();
+    audioSource = GetComponent<AudioSource> ();
 	}
 
 	void Update () {
@@ -25,13 +29,18 @@ public class Hands : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		// handles haptic feedback from chest collision
+    
 		if (other.gameObject.tag == "Chest") {
-			hapticFlag = true;	
-		}
+			
+      hapticFlag = true;	
 
-		// handles slap
-		if (other.gameObject.tag == "Face") {
+		} else if (other.gameObject.tag == "GameCard") {
+      
+      StartCoroutine (TimedVibration (0.15f, 0.5f));
+      audioSource.PlayOneShot (hitSound);
+
+    } else if (other.gameObject.tag == "Face") {
+
       GameObject character = other.gameObject.transform.root.gameObject;
       character.GetComponent<Movement>().GetSlapped();
 
@@ -42,10 +51,8 @@ public class Hands : MonoBehaviour {
 			float pulseIntensity = Mathf.Clamp(device.velocity.magnitude/6f, 0f, 1f);
 			float pulseDuration = Mathf.Clamp (pulseIntensity, 0f, 0.3f);
 			StartCoroutine (TimedVibration (pulseDuration, pulseIntensity));
-
-			// must set haptic flag to false because trigger won't exit after object is deleted
-			hapticFlag = false;
-		}
+		
+    }
 	}
 
 	void OnTriggerExit() {
