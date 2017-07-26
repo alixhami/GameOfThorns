@@ -40,7 +40,7 @@ public class Movement : MonoBehaviour {
 		suitorType = suitorTypes [Random.Range (0, suitorTypes.Length)];
 		goodGuy = suitorType == "Good";
     anim.SetBool ("Villain", !goodGuy);
-		accuracyWP = 1.0f;
+		accuracyWP = 1.5f;
 		audioSource = GetComponent<AudioSource> ();
 	}
 
