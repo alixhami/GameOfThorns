@@ -85,7 +85,6 @@ public class Movement : MonoBehaviour {
 	public void GetRose () {
 		audioSource.PlayOneShot(roseHitSound);
 		anim.SetTrigger ("getRose");
-		anim.SetBool ("hasRose", true);
 
 		if (goodGuy && !receivedRose) {
 			game.GoodGuyGetsRose();
