@@ -17,13 +17,32 @@ public class Spawner : MonoBehaviour {
 	int randomSpawnIndex;
   public LimoGame game;
 
+  float spawnEscalationInterval = 50f;
+
   public void StartSpawning (float spawnInterval) {
     InvokeRepeating ("SpawnRandom", 2f, spawnInterval);
 
     if (!game.survivalMode) {
       Invoke ("StartTimer", 2f);
-    } else if (game.survivalMode && !game.activeStopwatch) {
+    } else {
+      StartCoroutine(EscalatingSpawn(spawnInterval));
+    }
+
+
+    if (game.survivalMode && !game.activeStopwatch) {
       Invoke ("StartStopwatch", 2f);
+    }
+  }
+
+  IEnumerator EscalatingSpawn (float startingSpawnInterval) {
+    float currentSpawnInterval = startingSpawnInterval;
+
+    yield return new WaitForSeconds (spawnEscalationInterval);
+    while (currentSpawnInterval >= 1f) {
+      CancelInvoke();
+      currentSpawnInterval--;
+      InvokeRepeating("SpawnRandom", 0f, currentSpawnInterval);
+      yield return new WaitForSeconds (spawnEscalationInterval);
     }
   }
 
