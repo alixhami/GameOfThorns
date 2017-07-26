@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour {
 
   public GameObject gameSelectPillars;
   public GameCard[] gameCards;
+  float gameSelectDelay = 3f;
+
   public Instructions instructions;
 
   void Awake () {
@@ -40,9 +42,34 @@ public class GameManager : MonoBehaviour {
   }
 
   private void GameCard_TriggerGame (string gameName) {
-    gameSelectPillars.SetActive(false);
+    HideGameCards();
     menu.HideMenus();
     instructions.ShowInstructions (gameName);
+  }
+
+  void ShowGameCards () {
+    gameSelectPillars.SetActive(true);
+
+    StopAllCoroutines();
+    foreach (var gameCard in gameCards) {
+      StartCoroutine(DelayedActivateGameCard(gameCard, gameSelectDelay));
+    }
+  }
+
+  // Collider activation is delayed so the player doesn't accidentally start a new level
+  // if they are standing on top of the pillars when the game ends
+  IEnumerator DelayedActivateGameCard (GameCard gameCard, float delayTime) {
+    yield return new WaitForSeconds(delayTime);
+    gameCard.EnableCollider();
+  }
+
+  void HideGameCards () {
+    gameSelectPillars.SetActive(false);
+
+    StopAllCoroutines();
+    foreach (var gameCard in gameCards) {
+      gameCard.DisableCollider();
+    }
   }
 
   void Instructions_TriggerGameStart (string gameName) {
@@ -107,7 +134,7 @@ public class GameManager : MonoBehaviour {
     DestroyAllWithTag("Suitor");
 
     menu.DisplayGameOverMenu(score, feedback);
-    gameSelectPillars.SetActive(true);
+    ShowGameCards();
   }
 
   void DestroyAllWithTag (string tag) {
