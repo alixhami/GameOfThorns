@@ -14,21 +14,22 @@ public class TargetSuitor : MonoBehaviour {
   string[] normalJobs = {
     "Personal Trainer","Attorney","Pharmaceutical Sales Rep","Financial Analyst", 
     "Firefighter", "Accountant", "Marketing Consultant", "Singer/ Songwriter", "ER Physician",
-    "Former Pro Athlete","Veteran"
+    "Former Pro Athlete", "Veteran", "Professional Athlete", "Sales Representative",
+    "Lawyer", "Advertising Executive"
   };
 
   string[] weirdJobs = {
     "Tickle Monster", "Chicken Enthusiast", "Whaboom", "Twin", "Jumbotron Operator",
     "Manscaper", "Amateur Sex Coach", "Pizza Entrepreneur", "Aspiring Drummer", "Canadian",
-    "Panstapreneur", "Hipster", "Free Spirit", "Dog Lover", "Aspiring Dolphin Trainer"
+    "Panstapreneur", "Hipster", "Free Spirit", "Dog Lover", "Aspiring Dolphin Trainer",
+    "Erectile Dysfunction Dr", "Tailor /Magician", "Bachelor Superfan", "Breast Implant Sales",
+    "Law Student/ Exotic Dancer"
   };
 
   bool isJoke;
   string suitorName;
   int age;
   string job;
-
-  bool hasRose = false;
 
   public Animator anim;
   AudioSource audioSource;
@@ -54,7 +55,6 @@ public class TargetSuitor : MonoBehaviour {
 	}
 
   void GetRose () {
-    hasRose = true;
     CountRose (isJoke);
 
     if (isJoke) {
@@ -71,7 +71,6 @@ public class TargetSuitor : MonoBehaviour {
   }
 
   public void Reset () {
-    hasRose = false;
     Randomize ();
     chest.ResetRose ();
   }

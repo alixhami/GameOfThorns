@@ -8,7 +8,6 @@ public class Hands : MonoBehaviour {
 
 	public bool hapticFlag = false;
 	private SteamVR_TrackedObject trackedObj;
-  private SteamVR_TrackedController controller;
 	private SteamVR_Controller.Device device { get { return SteamVR_Controller.Input ((int)trackedObj.index); } }
 
   AudioSource audioSource;
@@ -18,7 +17,6 @@ public class Hands : MonoBehaviour {
 
 	void Awake () {
 		trackedObj = GetComponent<SteamVR_TrackedObject> ();
-    controller = GetComponent<SteamVR_TrackedController> ();
     audioSource = GetComponent<AudioSource> ();
 	}
 
