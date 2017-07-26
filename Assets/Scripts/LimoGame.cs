@@ -45,9 +45,9 @@ public class LimoGame : MonoBehaviour {
   public void Play (bool survival) {
     playing = true;
     survivalMode = survival;
+    scoring.ResetScores ();
 
     if (!survivalMode) {
-      scoring.ResetScores ();
       scoring.Show ();
       timer.SetTimer (timeLimit);
       CreateLimo (fastSpawnInterval, limoDestinations[0]);
@@ -115,7 +115,7 @@ public class LimoGame : MonoBehaviour {
       }
 
       playing = false;
-      GameOver (string.Concat("Roses Given: ", totalCount, "\nBachelor Purity: ", purityScore), feedback);
+      GameOver (string.Concat("Man Count: ", totalCount, "\nMarriage Material: ", purityScore), feedback);
     }
   }
     
@@ -125,8 +125,10 @@ public class LimoGame : MonoBehaviour {
     playerAlerts.hideMessage ();
     stopwatch.Hide ();
     StopAllCoroutines ();
+    
+    int bachelorCount = scoring.goodGuyCount;
 
-    GameOver (string.Concat("Time Survived: ", stopwatch.text.text), feedback);
+    GameOver (string.Concat("Bachelor Count: ", bachelorCount, "\nTime Survived: ", stopwatch.text.text), feedback);
   }
 
   public void Hide () {
@@ -145,11 +147,10 @@ public class LimoGame : MonoBehaviour {
   public void VillainSneaksIn () {
     playerAlerts.displayNegativeAlert ("A villain snuck in!");
     soundEffects.PlayOneShot (badAlertSound);
+    scoring.ChangeVillainCount(1);
 
     if (survivalMode) {
       SurvivalGameOver("A villain snuck in! Villains aren't classy enough to wait for an invitation.");
-    } else {
-      scoring.ChangeVillainCount(1);
     }
   }
 
