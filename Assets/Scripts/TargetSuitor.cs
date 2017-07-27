@@ -22,7 +22,7 @@ public class TargetSuitor : MonoBehaviour {
     "Tickle Monster", "Chicken Enthusiast", "Whaboom", "Twin", "Jumbotron Operator",
     "Manscaper", "Amateur Sex Coach", "Pizza Entrepreneur", "Aspiring Drummer", "Canadian",
     "Panstapreneur", "Hipster", "Free Spirit", "Dog Lover", "Aspiring Dolphin Trainer",
-    "Erectile Dysfunction Dr", "Tailor /Magician", "Bachelor Superfan", "Breast Implant Sales",
+    "Erectile Dysfunction Dr", "Tailor/ Magician", "Bachelor Superfan", "Breast Implant Sales",
     "Law Student/ Exotic Dancer"
   };
 
