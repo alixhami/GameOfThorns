@@ -110,14 +110,7 @@ public class GameManager : MonoBehaviour {
     music.clip = track;
     music.volume = maxMusicVolume;
     music.Play();
-    //music.volume = 0f;
-    //audioVolume = music.volume;
 
-    //while (music.volume < maxMusicVolume) {
-    //  audioVolume += musicFadeSpeed;
-    //  music.volume = audioVolume;
-    //  yield return new WaitForSeconds(0.01f);
-    //}
   }
 
   public void GameOver (string score, string feedback) {

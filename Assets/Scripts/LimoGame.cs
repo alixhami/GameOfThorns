@@ -53,7 +53,7 @@ public class LimoGame : MonoBehaviour {
       CreateLimo (fastSpawnInterval, limoDestinations[0]);
     } else {
       stopwatch.ResetTime ();
-      StartCoroutine(CreateMultipleLimos(slowSpawnInterval, 37f));
+      StartCoroutine(CreateMultipleLimos(slowSpawnInterval, 38f));
     }
   }
 
