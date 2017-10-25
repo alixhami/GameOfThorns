@@ -1,7 +1,9 @@
 <img src="GOTLogo.png" alt="Game of Thorns" width="100%" />
 
 ### About
-Game of Thorns is Bachelorette-themed VR game created for my Ada Developers Academy capstone project. A virtual reality reality television experience, if you will...
+Game of Thorns is a Bachelorette-themed VR game created for my Ada Developers Academy capstone project. A virtual reality reality television experience, if you will...
+
+[Video Demo](https://youtu.be/I94U3DMq6EI)
 
 ### How to play Game of Thorns
 + Download the latest build [here](https://github.com/alixhami/GameOfThorns/releases/tag/v1.0).
